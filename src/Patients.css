@@ -1,0 +1,106 @@
+.list-data{
+    padding: 15px 30px;
+    background-color: white;
+    border-bottom: 1px solid #EFEEF1;
+    display: flex;
+    flex-direction: row;
+}
+
+.list{
+    display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 0 0 20px 0;
+            height: 75vh;
+}
+
+.filter-container{
+    width: 100%;
+     display: flex; 
+     flex-direction: row;
+}
+
+.list-header{
+    display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: white;
+            border-radius: 20px 20px 20px 20px;
+            padding: 0 0 20px 0;
+            height: 90%;
+}
+
+.filter-popUp{
+    position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 5px;
+            border-radius: 10px;
+            width: 100%;
+            height: 50px;
+            z-index: 6;
+            background-color: white;
+            box-shadow: 4px 4px 24px 0px #B6A9A940;
+            visibility: hidden;
+}
+
+.icon-container{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+}
+
+.icon-text{
+    font-size: 14px;
+    font-weight: 500;
+    color: #929BA6;
+}
+
+.list-name{
+        font-size: 16px;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 20%;
+}
+
+.readings{
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 20%;
+}
+
+.devices{
+    font-size: 16px;
+        font-weight: 500;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 40%;
+}
+
+.filterBtn{
+    border-radius: 8px;
+        border: 1px solid transparent;
+        padding: 10px;
+        font-size: 1em;
+        font-weight: 600;
+        font-family: inherit;
+        /* background-color: #646cff; */
+        background-color: white;
+        color: #7D9FEF;
+        cursor: pointer;
+        border:1px solid #DBDADD;
+        transition: border-color 0.25s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+}

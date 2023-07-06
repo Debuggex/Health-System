@@ -1,0 +1,168 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #F7F9F8;
+  /* background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+input{
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 18px;
+    width: 100%;
+    outline: none;
+    border: none;
+}
+input:focus{
+  border: none;
+  background: none;
+  outline: none;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.primaryButton{
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 10px;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  /* background-color: #646cff; */
+  background-color: #7D9FEF;
+  color: #FFF;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  width: 100%;
+}
+
+
+.primaryButton:hover {
+  border-color: #646cff;
+  background-color: #646cff;
+}
+.primaryButton:focus,
+.primaryButton:focus-visible {
+  background-color: #646cff;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  border: 3px solid #DBDADD;
+  margin-right: 20px;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-label{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 50px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 50px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 50px;
+}
+
+input.checked {
+  background-color: #7D9FEF;
+  position: relative;
+}
+
+input.checked::before {
+  content: "\2714";
+  font-size: 12px;
+  color: #fff;
+  background-color: #7D9FEF;
+  position: absolute;
+  left: 25%;
+  /* bottom: 0.1px; */
+  /* right: 1px; */
+  /* top: -5px; */
+}
+
+input.unChecked{
+  background-color: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
