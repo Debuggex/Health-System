@@ -73,6 +73,25 @@ h1 {
   background-color: #646cff;
 }
 
+
+
+.secondaryButton {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 10px;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  /* background-color: #646cff; */
+  background-color: #FFF;
+  color: #7D9FEF;
+  cursor: pointer;
+  border: 1px solid #E0E1E2;
+  width: 100%;
+  margin: 10px 0;
+}
+
+
 .checkbox-wrapper input[type="checkbox"] {
   /* removing default appearance */
   -webkit-appearance: none;

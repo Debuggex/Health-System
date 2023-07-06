@@ -16,6 +16,7 @@ import notification from "./assets/notification.png";
 import "./App.css";
 import Dashboard from "./Dashboard";
 import Patient from "./Patient";
+import PatientView from "./PatientView";
 
 function Base(params) {
 
@@ -389,7 +390,8 @@ function Base(params) {
           }}
         >
           {dashboard && <Dashboard />}
-          {user && <Patient showHidePopUp={showPopUp} />}
+          {/* {user && <Patient showHidePopUp={showPopUp} />} */}
+          {user && <PatientView/>}
         </div>
       </div>
       {popUp && (
