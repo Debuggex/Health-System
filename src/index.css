@@ -14,6 +14,50 @@
   -webkit-text-size-adjust: 100%;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+    /* Remove default arrow */
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #DBDADD;
+  font-size: 14px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+
+select::-ms-expand {
+  display: none;
+  /* Hide the default arrow in Internet Explorer 10 and Internet Explorer 11 */
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: url(../src/assets/Expand.png);
+  top: 37px;
+  right: 26px;
+  position: absolute;
+}
+
+.select-wrapper1 {
+  position: relative;
+}
+
+.select-wrapper1::after {
+  content: url(../src/assets/Expand.png);
+  top: 20px;
+  right: 30px;
+  position: absolute;
+}
+
 input{
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -61,6 +105,7 @@ h1 {
   cursor: pointer;
   transition: border-color 0.25s;
   width: 100%;
+  margin: 10px 0;
 }
 
 
@@ -102,6 +147,20 @@ h1 {
   border-radius: 8px;
   border: 3px solid #DBDADD;
   margin-right: 20px;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-wrapper-popUp input[type="checkbox"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 2px solid #000;
+  margin-right: 10px;
   outline: none;
   cursor: pointer;
 }
@@ -154,7 +213,27 @@ input.checked::before {
   /* top: -5px; */
 }
 
-input.unChecked{
+input.unCheckedPopUp{
+  background-color: #fff;
+}
+
+
+input.checkedPopUp {
+  position: relative;
+}
+
+input.checkedPopUp::before {
+  content: "\2714";
+  font-size: 11px;
+  color: #000;
+  position: absolute;
+  left: 20%;
+  /* bottom: 0.01px; */
+  /* right: 1px; */
+  /* top: -5px; */
+}
+
+input.unCheckedPopUp {
   background-color: #fff;
 }
 

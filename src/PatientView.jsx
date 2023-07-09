@@ -5,15 +5,38 @@ import Chat from "./assets/Chat.png";
 import Copy from "./assets/copy.png";
 import Vitals from "./Vitals";
 import BloodPressure from "./BloodPressure";
+import Devices from "./Devices";
+import Interactions from "./Interactions";
+import CarePlan from "./CarePlan";
+import { useState } from "react";
+import AddDevice from "./AddDevice";
 
 
 
 function PatientView(params) {
+
+  const[addDevice,setAddDevice] = useState(false);
+  const addDeviceFunction = ()=>{
+    setAddDevice(!addDevice);
+  }
+
+  const [tab, setTab] = useState("Vitals");
+
+  const selectTab = (tab)=>{
+    setTab(tab);
+  }
+
+  if(!addDevice){
   return (
-    <div className="row col-12" style={{ width: "100%" }}>
+    <div className="row col-12" id="PatientView" style={{ width: "100%" }}>
       <div className="col-md-4" id="leftView">
         <div className="col-md-12 topContainer normalText">
-          <span style={{ color: "#929BA6", marginRight: "5px" }}>
+          <span
+            style={{ color: "#929BA6", marginRight: "5px", cursor: "pointer" }}
+            onClick={() => {
+              params.showPatientView();
+            }}
+          >
             Patients List{" "}
           </span>
           &gt; &gt; Patients View
@@ -136,16 +159,52 @@ function PatientView(params) {
       <div className="col-md-8" id="RightView">
         <div className="col-md-12 topContainer rightTop">
           <div className="col-md-8 row">
-            <div className="col-md-2 normalText" style={{ cursor: "pointer" }}>
+            <div
+              className="col-md-2 normalText"
+              style={{
+                cursor: "pointer",
+                color: tab == "Vitals" ? "#7D9FEF" : "#000",
+              }}
+              onClick={() => {
+                selectTab("Vitals");
+              }}
+            >
               Vitals
             </div>
-            <div className="col-md-3 normalText" style={{ cursor: "pointer" }}>
+            <div
+              className="col-md-3 normalText"
+              style={{
+                cursor: "pointer",
+                color: tab == "Interactions" ? "#7D9FEF" : "#000",
+              }}
+              onClick={() => {
+                selectTab("Interactions");
+              }}
+            >
               Interactions
             </div>
-            <div className="col-md-3 normalText" style={{ cursor: "pointer" }}>
+            <div
+              className="col-md-3 normalText"
+              style={{
+                cursor: "pointer",
+                color: tab == "CarePlan" ? "#7D9FEF" : "#000",
+              }}
+              onClick={() => {
+                selectTab("CarePlan");
+              }}
+            >
               Care Plan
             </div>
-            <div className="col-md-3 normalText" style={{ cursor: "pointer" }}>
+            <div
+              className="col-md-3 normalText"
+              style={{
+                cursor: "pointer",
+                color: tab == "Devices" ? "#7D9FEF" : "#000",
+              }}
+              onClick={() => {
+                selectTab("Devices");
+              }}
+            >
               Devices
             </div>
           </div>
@@ -161,11 +220,16 @@ function PatientView(params) {
             1:03
           </div>
         </div>
-        {false && <Vitals />}
-        {true && <BloodPressure/>}
+        {tab == "Vitals" && <Vitals />}
+        {tab == "Devices" && <Devices addDeviceFun={addDeviceFunction} />}
+        {tab == "Interactions" && <Interactions />}
+        {tab == "CarePlan" && <CarePlan />}
       </div>
     </div>
-  );
+  );}
+  if(addDevice){
+    return <AddDevice addDeviceFun={addDeviceFunction} />;
+  }
 }
 
 export default PatientView;

@@ -17,6 +17,7 @@ import "./App.css";
 import Dashboard from "./Dashboard";
 import Patient from "./Patient";
 import PatientView from "./PatientView";
+import AddDevice from "./AddDevice";
 
 function Base(params) {
 
@@ -24,14 +25,21 @@ function Base(params) {
     const[user,setUser] = useState(false);
     const[document,setDocument] = useState(false);
     const[patients,setPatients] = useState(false);
+    const [patientsView, setPatientsView] = useState(false);
+    
     const[popUp,setPopUp] = useState(false);
 
     const activeDashboard=function(){
+      console.log("Hello")
         setDashboard(true);
         setUser(false);
         setDocument(false);
         setPatients(false);       
     };
+
+    const showPatientView = ()=>{
+      setPatientsView(!patientsView);
+    }
 
     const showPopUp = function(){
       setPopUp(!popUp);
@@ -68,8 +76,20 @@ function Base(params) {
         position: "relative",
         height: "100vh",
         justifyContent: "center",
+        overflow: "hidden",
       }}
     >
+      <div
+        id="shadow"
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "100vh",
+          backgroundColor: "rgba(0,0,0, 0.5)",
+          zIndex: "50",
+          visibility: "hidden",
+        }}
+      ></div>
       <div
         style={{
           width: "10%",
@@ -387,11 +407,20 @@ function Base(params) {
             display: "flex",
             padding: "55px",
             backgroundColor: "#F7F9F8",
+            overflowY: "scroll",
           }}
         >
           {dashboard && <Dashboard />}
-          {/* {user && <Patient showHidePopUp={showPopUp} />} */}
-          {user && <PatientView/>}
+          {user && !patientsView && (
+            <Patient
+              showHidePopUp={showPopUp}
+              showPatientView={showPatientView}
+            />
+          )}
+          {user && patientsView && (
+            <PatientView showPatientView={showPatientView} />
+          )}
+          
         </div>
       </div>
       {popUp && (

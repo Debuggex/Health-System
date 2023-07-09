@@ -4,6 +4,7 @@
     border-bottom: 1px solid #EFEEF1;
     display: flex;
     flex-direction: row;
+    cursor: pointer;
 }
 
 .list{

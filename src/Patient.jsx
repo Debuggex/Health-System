@@ -17,7 +17,7 @@ import Upload from "./assets/Upload.png";
 import "./Patients.css";
 
 
-function Patient({showHidePopUp}){
+function Patient(props){
 
     const[allCheck,setAllCheck] = useState(false);
     
@@ -292,6 +292,9 @@ function Patient({showHidePopUp}){
                         type="checkbox"
                         className={allCheck ? "checked" : "unChecked"}
                         onChange={(check) => setAllCheck((check) => !check)}
+                        onClick={() => {
+                          props.showPatientView();
+                        }}
                       />
                     </label>
                   </div>
@@ -442,8 +445,9 @@ function Patient({showHidePopUp}){
                             borderBottom: "2px solid #DADADA",
                             padding: "5px 0",
                             cursor: "pointer",
+                            zIndex: "60",
                           }}
-                          onClick={() => showPop()}
+                          onClick={() => props.showHidePopUp()}
                         >
                           <img
                             src={edit}
