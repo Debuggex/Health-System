@@ -18,6 +18,8 @@ import Dashboard from "./Dashboard";
 import Patient from "./Patient";
 import PatientView from "./PatientView";
 import AddDevice from "./AddDevice";
+import UserList from "./UserList";
+import InviteUser from "./InviteUser";
 
 function Base(params) {
 
@@ -420,19 +422,19 @@ function Base(params) {
           {user && patientsView && (
             <PatientView showPatientView={showPatientView} />
           )}
-          
+          {patients && <UserList showHidePopUp={showPopUp} />}
         </div>
       </div>
-      {popUp && (
+      {false && (
         <div
           style={{
             position: "absolute",
-            width: "100%",
-            height: "100vh",
-            backgroundColor: "rgba(0,0,0, 0.5)",
+            width: "80%",
             zIndex: "50",
+            top:"1.5%",
+            left:"25%"
           }}
-        ></div>
+        ><InviteUser/></div>
       )}
       {/* Edit Pop Up Start */}
       {popUp && (

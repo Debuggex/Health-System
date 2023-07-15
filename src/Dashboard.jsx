@@ -1,7 +1,7 @@
 import arrowDown from "./assets/ArrowDown.svg";
 import profile from "./assets/Profile.png";
 import downgrade from "./assets/downgrade.png";
-import group from "./assets/Group.png";
+import group from "./assets/Groups.png";
 import upgrade from "./assets/upgrade.png";
 import NumberOfPatients from "./assets/NumberOfPatients.png";
 import NumberOfPatientsActive from "./assets/NumberOfPatientsActive.png";
@@ -184,7 +184,7 @@ function Dashboard(params) {
                             color: "white",
                             padding: "10px 30px",
                             bottom: "100%",
-                            right: "-50%",
+                            right: "-75%",
                             borderRadius: "10px",
                             fontWeight: "600",
                             zIndex: 10,
@@ -281,7 +281,7 @@ function Dashboard(params) {
                         color: "#929BA6",
                         fontWeight: "500",
                         width: "20%",
-                        fontSize:"14px"
+                        fontSize:"14px",
                       }}
                     >
                       {data}

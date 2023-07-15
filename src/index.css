@@ -58,11 +58,21 @@ select::-ms-expand {
   position: absolute;
 }
 
+.select-wrapper2 {
+  position: relative;
+}
+
+.select-wrapper2::after {
+  content: url(../src/assets/Expand.png);
+  top: 6px;
+  right: 40px;
+  position: absolute;
+}
+
 input{
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 14px;
     width: 100%;
     outline: none;
     border: none;
