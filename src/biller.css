@@ -1,0 +1,58 @@
+.cardsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.rightCardContainer{
+    width: 40%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    align-items: center;
+}
+.leftbar {
+    width: 60%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #7E9FED;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 20px 5px;
+    border-radius: 10px 0 0 10px;
+}
+
+.rightbar {
+    width: 40%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #CCD9F9;
+    color: #1A5CF6;
+    margin: 20px 5px;
+    border-radius: 0 10px 10px 0;
+    align-items: flex-end;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.leftCardContainer {
+    width: 60%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    align-items: center;
+}
+.cardHeading{
+    font-size: 30px;
+    font-weight: 600;
+}

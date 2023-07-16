@@ -8,6 +8,9 @@ import profileColor from "./assets/profileColor.png";
 import peopleColor from "./assets/peopleColor.png";
 import documentColor from "./assets/documentColor.png";
 import cross from "./assets/cross.png";
+import logo from "./assets/Logo.png"
+import billers from "./assets/biller.png";
+import billerColor from "./assets/billerColor.png";
 
 import search from "./assets/search-normal.svg";
 import profilePic from "./assets/ProfilePic.png";
@@ -27,6 +30,9 @@ import AccountSettings from "./AccountSettings";
 import NotificationSetting from "./NotificationSetting";
 import PrivacyAndSecurity from "./PrivacyAndSecurity";
 import HelpAndSecurity from "./HelpAndSupport";
+import Biller from "./Biller";
+import BillerReport from "./BillerReport";
+import DownloadReportsWarn from "./DownloadReportsWarn";
 
 
 function Base(params) {
@@ -40,6 +46,7 @@ function Base(params) {
     const [notSetting, setnotSetting] = useState(false);
     const[privacySetting,setPrivacySetting]=useState(false);
     const [helpSetting, sethelpSetting] = useState(false);
+    const [biller, setbiller] = useState(false);
     
     
     
@@ -65,6 +72,7 @@ function Base(params) {
       setUser(false);
       setDocument(false);
       setPatients(false);
+      setbiller(false);
     }
 
     const activeDashboard=function(){
@@ -116,6 +124,12 @@ function Base(params) {
       offSetting();
     };
 
+     const activeBiller = function () {
+       offAll();
+       setbiller(true);
+       offSetting();
+     };
+
     const activePatients = function () {
       offAll();
       setPatients(true);
@@ -151,7 +165,7 @@ function Base(params) {
           height: "100vh",
           backgroundColor: "rgba(0,0,0, 0.5)",
           zIndex: "50",
-          visibility: "hidden",
+          visibility: "visible",
         }}
       ></div>
       <div
@@ -164,18 +178,17 @@ function Base(params) {
       >
         <div
           style={{
-            height: "15%",
+            padding: "20px 0",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             marginBottom: "50px",
           }}
         >
-          <p style={{ fontWeight: "600" }}>Medkick</p>
+          <img src={logo} alt="" width={100} />
         </div>
         <div
           style={{
-            height: "90%",
             display: "flex",
             flexDirection: "column",
           }}
@@ -187,7 +200,7 @@ function Base(params) {
                 justifyContent: "center",
                 alignItems: "center",
                 padding: "20px",
-                marginBottom: "20px",
+                marginBottom: "10px",
                 position: "relative",
               }}
             >
@@ -212,7 +225,7 @@ function Base(params) {
                 justifyContent: "center",
                 alignItems: "center",
                 padding: "20px",
-                marginBottom: "20px",
+                marginBottom: "10px",
                 position: "relative",
                 cursor: "pointer",
               }}
@@ -231,7 +244,7 @@ function Base(params) {
                 justifyContent: "center",
                 alignItems: "center",
                 padding: "20px",
-                marginBottom: "20px",
+                marginBottom: "10px",
                 flexDirection: "row",
                 position: "relative",
                 cursor: "pointer",
@@ -250,7 +263,7 @@ function Base(params) {
                 justifyContent: "center",
                 alignItems: "center",
                 padding: "20px",
-                marginBottom: "20px",
+                marginBottom: "10px",
                 flexDirection: "row",
                 position: "relative",
               }}
@@ -275,7 +288,7 @@ function Base(params) {
                 justifyContent: "center",
                 alignItems: "center",
                 padding: "20px",
-                marginBottom: "20px",
+                marginBottom: "10px",
                 position: "relative",
                 cursor: "pointer",
               }}
@@ -293,7 +306,7 @@ function Base(params) {
                 justifyContent: "center",
                 alignItems: "center",
                 padding: "20px",
-                marginBottom: "20px",
+                marginBottom: "10px",
                 position: "relative",
               }}
             >
@@ -318,7 +331,7 @@ function Base(params) {
                 justifyContent: "center",
                 alignItems: "center",
                 padding: "20px",
-                marginBottom: "20px",
+                marginBottom: "10px",
                 position: "relative",
                 cursor: "pointer",
               }}
@@ -337,7 +350,7 @@ function Base(params) {
                 justifyContent: "center",
                 alignItems: "center",
                 padding: "20px",
-                marginBottom: "20px",
+                marginBottom: "10px",
                 position: "relative",
               }}
             >
@@ -354,6 +367,145 @@ function Base(params) {
               ></div>
             </div>
           )}
+
+          {/* Biller Icon */}
+          {!biller && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "20px",
+                marginBottom: "10px",
+                position: "relative",
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                activeBiller();
+              }}
+            >
+              <img src={billers} alt="" width={25} />
+            </div>
+          )}
+
+          {biller && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "20px",
+                marginBottom: "10px",
+                position: "relative",
+              }}
+            >
+              <img src={billerColor} alt="" width={25} />
+              <div
+                style={{
+                  position: "absolute",
+                  height: "10%",
+                  padding: "15px 3px",
+                  borderRadius: "50px",
+                  backgroundColor: "#7D9FEF",
+                  left: "97%",
+                }}
+              ></div>
+            </div>
+          )}
+
+          {/* Biller Icon End */}
+          <div style={{ marginBottom: "80px" }}></div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "20px",
+              position: "relative",
+            }}
+          >
+            <img src={notification} alt="" width={20} height={20} />
+            <div
+              style={{
+                position: "absolute",
+                padding: "5px",
+                backgroundColor: "#FF0000",
+                borderRadius: "50px",
+                border: "2px solid #FFF",
+                bottom: "50%",
+                left: "50%",
+              }}
+            ></div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "20px",
+              marginBottom: "20px",
+              position: "relative",
+            }}
+          >
+            <img src={search} alt="" width={20} height={20} />
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              position: "relative",
+            }}
+          >
+            <img
+              src={profilePic}
+              style={{ cursor: "pointer" }}
+              alt=""
+              width={40}
+              height={40}
+              onClick={() => {
+                showSetting();
+              }}
+            />
+
+            <div
+              id="SettingsMenu"
+              style={{
+                position: "absolute",
+                padding: "0 20px",
+                backgroundColor: "white",
+                display: "flex",
+                bottom: "5px",
+                flexDirection: "column",
+                borderRadius: "10px",
+                boxShadow: "0 0 5px 0px rgba(182, 169, 169, 0.25)",
+                width: "250px",
+                visibility: "hidden",
+                left: "70%",
+              }}
+            >
+              {settingMenu.map((data, key) => (
+                <div
+                  key={key}
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    fontSize: "14px",
+                    alignItems: "center",
+                    width: "100%",
+                    borderBottom: "1px solid #DADADA",
+                    padding: "10px 0",
+                    fontWeight: "600",
+                  }}
+                  onClick={() => {
+                    showaSetting(data);
+                  }}
+                >
+                  {data}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -365,163 +517,10 @@ function Base(params) {
         }}
       >
         <div
-          id="header"
-          style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "white",
-          }}
-        >
-          <div
-            id="searchbar"
-            style={{
-              width: "50%",
-              display: "flex",
-              padding: "20px 40px",
-            }}
-          >
-            <div
-              style={{
-                width: "50%",
-                display: "flex",
-                flexDirection: "row",
-                padding: "10px 15px",
-                backgroundColor: "#F3F5F4",
-                borderRadius: "10px",
-              }}
-            >
-              <div
-                style={{
-                  marginRight: "10px",
-                  cursor: "pointer",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <img src={search} alt="" width="90%" />
-              </div>
-              <input
-                type="text"
-                style={{ background: "none", border: "none", width: "100%" }}
-                placeholder="Search"
-              />
-            </div>
-          </div>
-          <div
-            id="profilePic"
-            style={{
-              width: "50%",
-              display: "flex",
-              padding: "20px 40px",
-              justifyContent: "flex-end",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                position: "relative",
-                cursor: "pointer",
-                marginRight: "15px",
-              }}
-              onClick={() => {
-                showSetting();
-              }}
-            >
-              <img src={settings} alt="" width="70%" />
-              <div
-                id="SettingsMenu"
-                style={{
-                  position: "absolute",
-                  padding: "0 20px",
-                  backgroundColor: "white",
-                  display: "flex",
-                  top: "40px",
-                  flexDirection: "column",
-                  borderRadius: "10px",
-                  boxShadow: "0 0 5px 0px rgba(182, 169, 169, 0.25)",
-                  width: "250px",
-                  visibility: "hidden",
-                  right: "20%",
-                }}
-              >
-                {settingMenu.map((data, key) => (
-                  <div
-                    key={key}
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      fontSize: "14px",
-                      alignItems: "center",
-                      width: "100%",
-                      borderBottom: "1px solid #DADADA",
-                      padding: "10px 0",
-                      fontWeight: "600",
-                    }}
-                    onClick={() => {
-                      showaSetting(data);
-                    }}
-                  >
-                    {data}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                position: "relative",
-                cursor: "pointer",
-                marginRight: "15px",
-              }}
-            >
-              <img src={notification} alt="" width="70%" />
-              <div
-                style={{
-                  position: "absolute",
-                  padding: "5px",
-                  backgroundColor: "#FF0000",
-                  borderRadius: "50px",
-                  border: "2px solid #FFF",
-                  bottom: "50%",
-                  left: "50%",
-                }}
-              ></div>
-            </div>
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginRight: "10px",
-                }}
-              >
-                <img src={profilePic} alt="" width="70%" />
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  fontWeight: "500",
-                }}
-              >
-                Sadik
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
           id="main-content"
           style={{
             display: "flex",
-            padding: "55px",
+            padding: "40px 55px",
             backgroundColor: "#F7F9F8",
             overflowY: "scroll",
           }}
@@ -532,6 +531,7 @@ function Base(params) {
           {helpSetting && <HelpAndSecurity exit={activeDashboard} />}
 
           {dashboard && <Dashboard />}
+          {biller && <BillerReport />}
           {user && !patientsView && (
             <Patient
               showHidePopUp={showPopUp}
@@ -571,6 +571,21 @@ function Base(params) {
           }}
         >
           <AddOrganization />
+        </div>
+      )}
+      {true && (
+        <div
+          style={{
+            position: "absolute",
+            display: "flex",
+            width: "100%",
+            zIndex: "50",
+            flexDirection: "column",
+            alignItems: "center",
+            top: "1%",
+          }}
+        >
+          <DownloadReportsWarn />
         </div>
       )}
       {/* Edit Pop Up Start */}

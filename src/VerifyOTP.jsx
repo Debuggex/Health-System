@@ -41,7 +41,7 @@ function VerifyOTP(params) {
                 border: "1px solid #DBDADD",
                 padding: "10px",
                 borderRadius: "10px",
-                width: "6%",
+                width: "10%",
                 display: "flex",
                 marginRight: "20px",
               }}
@@ -57,7 +57,7 @@ function VerifyOTP(params) {
                 border: "1px solid #DBDADD",
                 padding: "10px",
                 borderRadius: "10px",
-                width: "6%",
+                width: "10%",
                 display: "flex",
                 marginRight: "20px",
               }}
@@ -73,7 +73,7 @@ function VerifyOTP(params) {
                 border: "1px solid #DBDADD",
                 padding: "10px",
                 borderRadius: "10px",
-                width: "6%",
+                width: "10%",
                 display: "flex",
                 marginRight: "20px",
               }}
@@ -89,7 +89,7 @@ function VerifyOTP(params) {
                 border: "1px solid #DBDADD",
                 padding: "10px",
                 borderRadius: "10px",
-                width: "6%",
+                width: "10%",
                 display: "flex",
                 marginRight: "20px",
               }}
@@ -105,7 +105,7 @@ function VerifyOTP(params) {
                 border: "1px solid #DBDADD",
                 padding: "10px",
                 borderRadius: "10px",
-                width: "6%",
+                width: "10%",
                 display: "flex",
                 marginRight: "20px",
               }}
@@ -121,7 +121,7 @@ function VerifyOTP(params) {
                 border: "1px solid #DBDADD",
                 padding: "10px",
                 borderRadius: "10px",
-                width: "6%",
+                width: "10%",
                 display: "flex",
                 marginRight: "20px",
               }}

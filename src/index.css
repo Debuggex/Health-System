@@ -101,6 +101,14 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+span{
+  margin: 0;
+  padding: 0;
+}
+img {
+  margin: 0;
+  padding: 0;
+}
 
 .primaryButton{
   border-radius: 8px;
@@ -116,6 +124,9 @@ h1 {
   transition: border-color 0.25s;
   width: 100%;
   margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -128,12 +139,17 @@ h1 {
   background-color: #646cff;
 }
 
+.rowContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 
 .secondaryButton {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 10px;
+  padding: 10px 30px;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -142,8 +158,12 @@ h1 {
   color: #7D9FEF;
   cursor: pointer;
   border: 1px solid #E0E1E2;
+  display: flex;
+    align-items: center;
+    justify-content: center;
   width: 100%;
   margin: 10px 0;
+
 }
 
 
