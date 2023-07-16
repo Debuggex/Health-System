@@ -12,6 +12,7 @@ import cross from "./assets/cross.png";
 import search from "./assets/search-normal.svg";
 import profilePic from "./assets/ProfilePic.png";
 import notification from "./assets/notification.png";
+import settings from "./assets/Setting.png";
 
 import "./App.css";
 import Dashboard from "./Dashboard";
@@ -20,53 +21,114 @@ import PatientView from "./PatientView";
 import AddDevice from "./AddDevice";
 import UserList from "./UserList";
 import InviteUser from "./InviteUser";
+import Organization from "./Oragnization";
+import AddOrganization from "./AddOrganization";
+import AccountSettings from "./AccountSettings";
+import NotificationSetting from "./NotificationSetting";
+import PrivacyAndSecurity from "./PrivacyAndSecurity";
+import HelpAndSecurity from "./HelpAndSupport";
+
 
 function Base(params) {
 
     const[dashboard,setDashboard] = useState(true);
     const[user,setUser] = useState(false);
-    const[document,setDocument] = useState(false);
+    const[documents,setDocument] = useState(false);
     const[patients,setPatients] = useState(false);
     const [patientsView, setPatientsView] = useState(false);
+    const [accSetting, setaccSetting] = useState(false);
+    const [notSetting, setnotSetting] = useState(false);
+    const[privacySetting,setPrivacySetting]=useState(false);
+    const [helpSetting, sethelpSetting] = useState(false);
+    
+    
     
     const[popUp,setPopUp] = useState(false);
 
+    let settingMenu = [
+      "Account Settings",
+      "Notification Settings",
+      "Privacy and Security Settings",
+      "App Preferences",
+      "Help and Support",
+    ];
+  
+    function offSetting() {
+        setaccSetting(false);
+        setnotSetting(false);
+        setPrivacySetting(false);
+        sethelpSetting(false);
+    }
+
+    function offAll() {
+      setDashboard(false);
+      setUser(false);
+      setDocument(false);
+      setPatients(false);
+    }
+
     const activeDashboard=function(){
-      console.log("Hello")
-        setDashboard(true);
-        setUser(false);
-        setDocument(false);
-        setPatients(false);       
+      offAll();  
+      setDashboard(true);
+      offSetting();  
     };
 
     const showPatientView = ()=>{
       setPatientsView(!patientsView);
     }
 
+    const showaSetting=function(param){
+      offAll();
+      offSetting();
+
+      switch (param) {
+        case "Account Settings":
+          setaccSetting(true);
+          break;
+        case "Notification Settings":
+          setnotSetting(true);
+          break;
+        case"Privacy and Security Settings":
+          setPrivacySetting(true);
+          break;  
+        case "Help and Support":
+          sethelpSetting(true);
+          break;  
+        default:
+          break;
+      }   
+    }
+
+
     const showPopUp = function(){
       setPopUp(!popUp);
     }
 
     const activeUser = function () {
-      setDashboard(false);
+      offAll();
       setUser(true);
-      setDocument(false);
-      setPatients(false);
+      offSetting();
     };
 
     const activeDocument = function () {
-      setDashboard(false);
-      setUser(false);
+      offAll();
       setDocument(true);
-      setPatients(false);
+      offSetting();
     };
 
     const activePatients = function () {
-      setDashboard(false);
-      setUser(false);
-      setDocument(false);
+      offAll();
       setPatients(true);
+      offSetting();
     };
+
+    function showSetting() {
+      if (document.getElementById("SettingsMenu").style.visibility == "hidden") {
+        document.getElementById("SettingsMenu").style.visibility = "visible";
+        return;
+      }
+      document.getElementById("SettingsMenu").style.visibility = "hidden";
+    }
     
 
 
@@ -249,7 +311,7 @@ function Base(params) {
             </div>
           )}
 
-          {!document && (
+          {!documents && (
             <div
               style={{
                 display: "flex",
@@ -268,7 +330,7 @@ function Base(params) {
             </div>
           )}
 
-          {document && (
+          {documents && (
             <div
               style={{
                 display: "flex",
@@ -365,6 +427,58 @@ function Base(params) {
                 cursor: "pointer",
                 marginRight: "15px",
               }}
+              onClick={() => {
+                showSetting();
+              }}
+            >
+              <img src={settings} alt="" width="70%" />
+              <div
+                id="SettingsMenu"
+                style={{
+                  position: "absolute",
+                  padding: "0 20px",
+                  backgroundColor: "white",
+                  display: "flex",
+                  top: "40px",
+                  flexDirection: "column",
+                  borderRadius: "10px",
+                  boxShadow: "0 0 5px 0px rgba(182, 169, 169, 0.25)",
+                  width: "250px",
+                  visibility: "hidden",
+                  right: "20%",
+                }}
+              >
+                {settingMenu.map((data, key) => (
+                  <div
+                    key={key}
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      fontSize: "14px",
+                      alignItems: "center",
+                      width: "100%",
+                      borderBottom: "1px solid #DADADA",
+                      padding: "10px 0",
+                      fontWeight: "600",
+                    }}
+                    onClick={() => {
+                      showaSetting(data);
+                    }}
+                  >
+                    {data}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                position: "relative",
+                cursor: "pointer",
+                marginRight: "15px",
+              }}
             >
               <img src={notification} alt="" width="70%" />
               <div
@@ -412,6 +526,11 @@ function Base(params) {
             overflowY: "scroll",
           }}
         >
+          {accSetting && <AccountSettings exit={activeDashboard} />}
+          {notSetting && <NotificationSetting exit={activeDashboard} />}
+          {privacySetting && <PrivacyAndSecurity exit={activeDashboard} />}
+          {helpSetting && <HelpAndSecurity exit={activeDashboard} />}
+
           {dashboard && <Dashboard />}
           {user && !patientsView && (
             <Patient
@@ -423,6 +542,7 @@ function Base(params) {
             <PatientView showPatientView={showPatientView} />
           )}
           {patients && <UserList showHidePopUp={showPopUp} />}
+          {documents && <Organization />}
         </div>
       </div>
       {false && (
@@ -431,10 +551,27 @@ function Base(params) {
             position: "absolute",
             width: "80%",
             zIndex: "50",
-            top:"1.5%",
-            left:"25%"
+            top: "1.5%",
+            left: "25%",
           }}
-        ><InviteUser/></div>
+        >
+          <InviteUser />
+        </div>
+      )}
+      {false && (
+        <div
+          style={{
+            position: "absolute",
+            display: "flex",
+            width: "100%",
+            zIndex: "50",
+            flexDirection: "column",
+            alignItems: "center",
+            top: "20%",
+          }}
+        >
+          <AddOrganization />
+        </div>
       )}
       {/* Edit Pop Up Start */}
       {popUp && (
