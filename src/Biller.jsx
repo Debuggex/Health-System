@@ -3,6 +3,16 @@ import "./biller.css"
 
 
 export default function Biller(params){
+
+  function showDownload(){
+    // DownloadReportsWarn
+    document.getElementById("shadow").style.visibility = "visible";
+    document.getElementById("DownloadReportsWarn").style.visibility = "visible";
+  } 
+
+  function showBillerRep() {
+    params.showBillerReport();
+  }
     
     return (
       <div style={{ width: "100%" }}>
@@ -14,9 +24,8 @@ export default function Biller(params){
               cursor: "pointer",
               margin: "20px",
             }}
-            onClick={() => props.exit()}
           >
-            <button className="secondaryButton">View Billing Report</button>
+            <button onClick={()=>{showBillerRep()}} className="secondaryButton">View Billing Report</button>
           </div>
           <div
             style={{
@@ -31,7 +40,7 @@ export default function Biller(params){
               <button
                 type="submit"
                 className="primaryButton"
-                onClick={() => props.exit()}
+                onClick={() => showDownload()}
               >
                 <img
                   style={{ marginRight: "10px" }}

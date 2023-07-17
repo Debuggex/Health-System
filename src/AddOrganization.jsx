@@ -6,6 +6,8 @@ import { useState } from "react";
 function AddOrganization(params) {
   const [allCheck, setAllCheck] = useState(false);
 
+  
+
   return (
     <div
       id="PatientEditPopUp"
@@ -34,7 +36,6 @@ function AddOrganization(params) {
             alignItems: "center",
             cursor: "pointer",
           }}
-          onClick={() => showPopUp()}
         >
           <img src={cross} alt="" width="18px" height="18px" />
         </div>
@@ -126,15 +127,17 @@ function AddOrganization(params) {
       </div>
 
       {/* Bottom Buttons */}
-      <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
+      <div style={{ width: "100%", display: "flex", flexDirection: "row",justifyContent:"space-between" }}>
         <div
           style={{
             width: "50%",
             fontSize: "16px",
             fontWeight: "600",
             cursor: "pointer",
+            display:"flex",
+            alignItems:"center"
           }}
-          onClick={() => showPopUp()}
+          onClick={() => params.exit()}
         >
           cancel
         </div>
@@ -147,15 +150,13 @@ function AddOrganization(params) {
             cursor: "pointer",
           }}
         >
-          <div style={{ width: "50%" }}>
             <button
               type="submit"
               className="primaryButton"
-              onClick={() => showPopUp()}
+              onClick={() => params.exit()}
             >
               Create
             </button>
-          </div>
         </div>
       </div>
     </div>

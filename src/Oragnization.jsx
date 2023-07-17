@@ -69,6 +69,11 @@ function Organization(props) {
     }
     document.getElementById(popUpName).style.visibility = "visible";
   };
+  
+    const showOrganization = () => {
+      document.getElementById("shadow").style.visibility = "visible";
+      document.getElementById("AddOrganization").style.visibility = "visible";
+    }; 
 
   const showPopUp = function (index) {
     if (
@@ -84,211 +89,219 @@ function Organization(props) {
     showHidePopUp();
   };
   return (
-    <div className="list" style={{height:"85vh"}}>
-      <div className="list-header">
-        <div
-          style={{
-            padding: "15px 30px",
-            borderRadius: "20px 20px 0 0",
-            backgroundColor: "#E9EBEA",
-            borderL: "1px solid #EFEEF1",
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
-          <div className="checkbox-wrapper">
-            <label
+    <div style={{ width: "100%" }}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ width: "50%" }}></div>
+        <button className="primaryButton" onClick={() => showOrganization()}>
+          Add Organization
+        </button>
+      </div>
+      <div className="list" style={{ height: "85vh" }}>
+        <div className="list-header">
+          <div
+            style={{
+              padding: "15px 30px",
+              borderRadius: "20px 20px 0 0",
+              backgroundColor: "#E9EBEA",
+              borderL: "1px solid #EFEEF1",
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+            <div className="checkbox-wrapper">
+              <label
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <input
+                  type="checkbox"
+                  className={allCheck ? "checked" : "unChecked"}
+                  onChange={(check) => setAllCheck((check) => !check)}
+                />
+              </label>
+            </div>
+
+            <div
               style={{
+                fontSize: "16px",
+                fontWeight: "600",
                 display: "flex",
                 justifyContent: "center",
                 flexDirection: "column",
-                alignItems: "center",
+
+                width: "45%",
               }}
             >
-              <input
-                type="checkbox"
-                className={allCheck ? "checked" : "unChecked"}
-                onChange={(check) => setAllCheck((check) => !check)}
-              />
-            </label>
+              Oraganization Name
+            </div>
+            <div
+              style={{
+                fontSize: "16px",
+                fontWeight: "600",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                width: "47%",
+              }}
+            >
+              Oraganization Location
+            </div>
           </div>
-
-          <div
-            style={{
-              fontSize: "16px",
-              fontWeight: "600",
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-
-              width: "45%",
-            }}
-          >
-            Oraganization Name
-          </div>
-          <div
-            style={{
-              fontSize: "16px",
-              fontWeight: "600",
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              width: "47%",
-            }}
-          >
-            Oraganization Location
-          </div>
-        </div>
-        {/* Header End */}
-        {/* Data Start */}
-        <div style={{ overflowY: "scroll" }}>
-          <div style={{}}>
-            {data.map((datas, index) => (
-              <div className="list-data" style={{ cursor: "default" }}>
-                <div
-                  className="checkbox-wrapper"
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <label className="checkbox-label">
-                    <input
-                      type="checkbox"
-                      className={allCheck ? "checked" : "unChecked"}
-                      onChange={(check) => setAllCheck((check) => !check)}
-                      onClick={() => {
-                        props.showPatientView();
-                      }}
-                    />
-                  </label>
-                </div>
-
-                <div id="name" className="list-name" style={{ width: "47%" }}>
-                  <div>{datas.name}</div>
-                </div>
-                <div
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: "500",
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
-                    width: "47%",
-                  }}
-                >
-                  {datas.Location}
-                </div>
-                <div
-                  style={{
-                    width: "5%",
-                  }}
-                >
+          {/* Header End */}
+          {/* Data Start */}
+          <div style={{ overflowY: "scroll" }}>
+            <div style={{}}>
+              {data.map((datas, index) => (
+                <div className="list-data" style={{ cursor: "default" }}>
                   <div
+                    className="checkbox-wrapper"
                     style={{
-                      width: "100%",
-                      position: "relative",
                       display: "flex",
-                      justifyContent: "flex-end",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
                   >
-                    <img
-                      style={{ cursor: "pointer" }}
-                      src={dots}
-                      alt=""
-                      width={24}
-                      height={24}
-                      onClick={() => showPopUp(index)}
-                    />
+                    <label className="checkbox-label">
+                      <input
+                        type="checkbox"
+                        className={allCheck ? "checked" : "unChecked"}
+                        onChange={(check) => setAllCheck((check) => !check)}
+                        onClick={() => {
+                          props.showPatientView();
+                        }}
+                      />
+                    </label>
+                  </div>
+
+                  <div id="name" className="list-name" style={{ width: "47%" }}>
+                    <div>{datas.name}</div>
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "16px",
+                      fontWeight: "500",
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      width: "47%",
+                    }}
+                  >
+                    {datas.Location}
+                  </div>
+                  <div
+                    style={{
+                      width: "5%",
+                    }}
+                  >
                     <div
-                      id={`popUp${index}`}
-                      key={index}
                       style={{
-                        position: "absolute",
-                        padding: "20px 20px",
-                        backgroundColor: "white",
+                        width: "100%",
+                        position: "relative",
                         display: "flex",
-                        top: "25px",
-                        flexDirection: "column",
-                        borderRadius: "10px",
-                        boxShadow: "0 0 5px 0px rgba(182, 169, 169, 0.25)",
-                        width: "150px",
-                        visibility: "hidden",
-                        zIndex: `${index + 5}`,
+                        justifyContent: "flex-end",
                       }}
                     >
+                      <img
+                        style={{ cursor: "pointer" }}
+                        src={dots}
+                        alt=""
+                        width={24}
+                        height={24}
+                        onClick={() => showPopUp(index)}
+                      />
                       <div
+                        id={`popUp${index}`}
+                        key={index}
                         style={{
+                          position: "absolute",
+                          padding: "20px 20px",
+                          backgroundColor: "white",
                           display: "flex",
-                          flexDirection: "row",
-                          fontSize: "14px",
-                          alignItems: "center",
-                          width: "100%",
-                          borderBottom: "2px solid #DADADA",
-                          padding: "5px 0",
+                          top: "25px",
+                          flexDirection: "column",
+                          borderRadius: "10px",
+                          boxShadow: "0 0 5px 0px rgba(182, 169, 169, 0.25)",
+                          width: "150px",
+                          visibility: "hidden",
+                          zIndex: `${index + 5}`,
                         }}
                       >
-                        <img
-                          src={trash}
-                          alt=""
-                          width="15px"
-                          height="15px"
-                          style={{ marginRight: "5px", color: "#FF0000" }}
-                        />
-                        Delete
-                      </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            fontSize: "14px",
+                            alignItems: "center",
+                            width: "100%",
+                            borderBottom: "2px solid #DADADA",
+                            padding: "5px 0",
+                          }}
+                        >
+                          <img
+                            src={trash}
+                            alt=""
+                            width="15px"
+                            height="15px"
+                            style={{ marginRight: "5px", color: "#FF0000" }}
+                          />
+                          Delete
+                        </div>
 
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "row",
-                          fontSize: "14px",
-                          alignItems: "center",
-                          width: "100%",
-                          borderBottom: "2px solid #DADADA",
-                          padding: "5px 0",
-                        }}
-                      >
-                        <img
-                          src={archive}
-                          alt=""
-                          width="15px"
-                          height="15px"
-                          style={{ marginRight: "5px" }}
-                        />
-                        Archive
-                      </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            fontSize: "14px",
+                            alignItems: "center",
+                            width: "100%",
+                            borderBottom: "2px solid #DADADA",
+                            padding: "5px 0",
+                          }}
+                        >
+                          <img
+                            src={archive}
+                            alt=""
+                            width="15px"
+                            height="15px"
+                            style={{ marginRight: "5px" }}
+                          />
+                          Archive
+                        </div>
 
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "row",
-                          fontSize: "14px",
-                          alignItems: "center",
-                          width: "100%",
-                          borderBottom: "2px solid #DADADA",
-                          padding: "5px 0",
-                          cursor: "pointer",
-                          zIndex: "60",
-                        }}
-                        onClick={() => props.showHidePopUp()}
-                      >
-                        <img
-                          src={edit}
-                          alt=""
-                          width="15px"
-                          height="15px"
-                          style={{ marginRight: "5px" }}
-                        />
-                        Edit
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            fontSize: "14px",
+                            alignItems: "center",
+                            width: "100%",
+                            borderBottom: "2px solid #DADADA",
+                            padding: "5px 0",
+                            cursor: "pointer",
+                            zIndex: "60",
+                          }}
+                          onClick={() => props.showHidePopUp()}
+                        >
+                          <img
+                            src={edit}
+                            alt=""
+                            width="15px"
+                            height="15px"
+                            style={{ marginRight: "5px" }}
+                          />
+                          Edit
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

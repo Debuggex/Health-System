@@ -33,9 +33,7 @@ function Devices(params) {
             justifyContent: "flex-end",
           }}
         >
-          <div className="col-md-2">
             <button className="primaryButton" onClick={()=>{params.addDeviceFun()}}>+ Devices</button>
-          </div>
         </div>
 
         <div

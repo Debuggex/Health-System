@@ -10,6 +10,19 @@ import archive from "./assets/archive.png";
 import { useState } from "react";
 
 function BillerReport(params) {
+
+  function showFilter() {
+    
+    document.getElementById("Filter").style.visibility = "visible";
+    document.getElementById("shadow").style.visibility = "visible";
+  }
+
+    function showCalendar() {
+      // Calendar
+      document.getElementById("Calendar").style.visibility="visible";
+      document.getElementById("shadow").style.visibility = "visible";
+      
+    }
     const [allCheck, setAllCheck] = useState(false);
 
     let data = [
@@ -190,8 +203,9 @@ function BillerReport(params) {
               borderRadius: "10px",
               justifyContent: "center",
               alignItems: "center",
-              cursor:"pointer"
+              cursor: "pointer",
             }}
+            onClick={()=>{showFilter()}}
           >
             <img src={filter} alt="" width={15} height={15} />
           </div>
@@ -227,6 +241,9 @@ function BillerReport(params) {
               alignItems: "center",
               borderRadius: "10px",
               cursor: "pointer",
+            }}
+            onClick={() => {
+              showCalendar()
             }}
           >
             <input

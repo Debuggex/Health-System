@@ -8,7 +8,7 @@ import profileColor from "./assets/profileColor.png";
 import peopleColor from "./assets/peopleColor.png";
 import documentColor from "./assets/documentColor.png";
 import cross from "./assets/cross.png";
-import logo from "./assets/Logo.png"
+import logo from "./assets/Logo.png";
 import billers from "./assets/biller.png";
 import billerColor from "./assets/billerColor.png";
 
@@ -33,118 +33,143 @@ import HelpAndSecurity from "./HelpAndSupport";
 import Biller from "./Biller";
 import BillerReport from "./BillerReport";
 import DownloadReportsWarn from "./DownloadReportsWarn";
-
+import DownloadReport from "./DownloadReport";
+import Calendar from "./Calendar";
+import Search from "./Search";
+import Filter from "./Filter";
 
 function Base(params) {
-
-    const[dashboard,setDashboard] = useState(true);
-    const[user,setUser] = useState(false);
-    const[documents,setDocument] = useState(false);
-    const[patients,setPatients] = useState(false);
-    const [patientsView, setPatientsView] = useState(false);
-    const [accSetting, setaccSetting] = useState(false);
-    const [notSetting, setnotSetting] = useState(false);
-    const[privacySetting,setPrivacySetting]=useState(false);
-    const [helpSetting, sethelpSetting] = useState(false);
-    const [biller, setbiller] = useState(false);
-    
-    
-    
-    const[popUp,setPopUp] = useState(false);
-
-    let settingMenu = [
-      "Account Settings",
-      "Notification Settings",
-      "Privacy and Security Settings",
-      "App Preferences",
-      "Help and Support",
-    ];
+  const [dashboard, setDashboard] = useState(true);
+  const [user, setUser] = useState(false);
+  const [documents, setDocument] = useState(false);
+  const [patients, setPatients] = useState(false);
+  const [patientsView, setPatientsView] = useState(false);
+  const [accSetting, setaccSetting] = useState(false);
+  const [notSetting, setnotSetting] = useState(false);
+  const [privacySetting, setPrivacySetting] = useState(false);
+  const [helpSetting, sethelpSetting] = useState(false);
+  const [biller, setbiller] = useState(false);
+  const [billerReport, setBillerReport] = useState(false);
   
-    function offSetting() {
-        setaccSetting(false);
-        setnotSetting(false);
-        setPrivacySetting(false);
-        sethelpSetting(false);
+
+  const [popUp, setPopUp] = useState(false);
+
+  let settingMenu = [
+    "Account Settings",
+    "Notification Settings",
+    "Privacy and Security Settings",
+    "App Preferences",
+    "Help and Support",
+  ];
+
+  function offSetting() {
+    setaccSetting(false);
+    setnotSetting(false);
+    setPrivacySetting(false);
+    sethelpSetting(false);
+  }
+
+  function offAll() {
+    setDashboard(false);
+    setUser(false);
+    setDocument(false);
+    setPatients(false);
+    setbiller(false);
+  }
+
+  const activeDashboard = function () {
+    offAll();
+    setDashboard(true);
+    offSetting();
+  };
+
+  const showPatientView = () => {
+    setPatientsView(!patientsView);
+  };
+
+  function showBillerReport() {
+    setBillerReport(!billerReport);
+  }
+
+  const showSearch = () => {
+    document.getElementById("shadow").style.visibility = "visible";
+    document.getElementById("Search").style.visibility = "visible";
+  };
+
+  function hideAllPopUps() {
+    document.getElementById("shadow").style.visibility = "hidden";
+    document.getElementById("Search").style.visibility = "hidden";
+    document.getElementById("AddOrganization").style.visibility = "hidden";
+    //  inviteUser
+    document.getElementById("inviteUser").style.visibility = "hidden";
+    // DownloadReportsWarn
+    document.getElementById("DownloadReportsWarn").style.visibility = "hidden";
+    // DownloadReport
+    document.getElementById("DownloadReport").style.visibility = "hidden";
+    // Calendar
+    document.getElementById("Calendar").style.visibility = "hidden";
+    // Filter
+    document.getElementById("Filter").style.visibility = "hidden";
+  }
+
+  const showaSetting = function (param) {
+    offAll();
+    offSetting();
+
+    switch (param) {
+      case "Account Settings":
+        setaccSetting(true);
+        break;
+      case "Notification Settings":
+        setnotSetting(true);
+        break;
+      case "Privacy and Security Settings":
+        setPrivacySetting(true);
+        break;
+      case "Help and Support":
+        sethelpSetting(true);
+        break;
+      default:
+        break;
     }
+  };
 
-    function offAll() {
-      setDashboard(false);
-      setUser(false);
-      setDocument(false);
-      setPatients(false);
-      setbiller(false);
+  const showPopUp = function () {
+    setPopUp(!popUp);
+  };
+
+  const activeUser = function () {
+    offAll();
+    setUser(true);
+    offSetting();
+  };
+
+  const activeDocument = function () {
+    offAll();
+    setDocument(true);
+    offSetting();
+  };
+
+  const activeBiller = function () {
+    offAll();
+    setbiller(true);
+    setBillerReport(false);
+    offSetting();
+  };
+
+  const activePatients = function () {
+    offAll();
+    setPatients(true);
+    offSetting();
+  };
+
+  function showSetting() {
+    if (document.getElementById("SettingsMenu").style.visibility == "hidden") {
+      document.getElementById("SettingsMenu").style.visibility = "visible";
+      return;
     }
-
-    const activeDashboard=function(){
-      offAll();  
-      setDashboard(true);
-      offSetting();  
-    };
-
-    const showPatientView = ()=>{
-      setPatientsView(!patientsView);
-    }
-
-    const showaSetting=function(param){
-      offAll();
-      offSetting();
-
-      switch (param) {
-        case "Account Settings":
-          setaccSetting(true);
-          break;
-        case "Notification Settings":
-          setnotSetting(true);
-          break;
-        case"Privacy and Security Settings":
-          setPrivacySetting(true);
-          break;  
-        case "Help and Support":
-          sethelpSetting(true);
-          break;  
-        default:
-          break;
-      }   
-    }
-
-
-    const showPopUp = function(){
-      setPopUp(!popUp);
-    }
-
-    const activeUser = function () {
-      offAll();
-      setUser(true);
-      offSetting();
-    };
-
-    const activeDocument = function () {
-      offAll();
-      setDocument(true);
-      offSetting();
-    };
-
-     const activeBiller = function () {
-       offAll();
-       setbiller(true);
-       offSetting();
-     };
-
-    const activePatients = function () {
-      offAll();
-      setPatients(true);
-      offSetting();
-    };
-
-    function showSetting() {
-      if (document.getElementById("SettingsMenu").style.visibility == "hidden") {
-        document.getElementById("SettingsMenu").style.visibility = "visible";
-        return;
-      }
-      document.getElementById("SettingsMenu").style.visibility = "hidden";
-    }
-    
-
+    document.getElementById("SettingsMenu").style.visibility = "hidden";
+  }
 
   return (
     <div
@@ -165,7 +190,7 @@ function Base(params) {
           height: "100vh",
           backgroundColor: "rgba(0,0,0, 0.5)",
           zIndex: "50",
-          visibility: "visible",
+          visibility: "hidden",
         }}
       ></div>
       <div
@@ -447,7 +472,16 @@ function Base(params) {
               position: "relative",
             }}
           >
-            <img src={search} alt="" width={20} height={20} />
+            <img
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                showSearch();
+              }}
+              src={search}
+              alt=""
+              width={20}
+              height={20}
+            />
           </div>
           <div
             style={{
@@ -531,7 +565,10 @@ function Base(params) {
           {helpSetting && <HelpAndSecurity exit={activeDashboard} />}
 
           {dashboard && <Dashboard />}
-          {biller && <BillerReport />}
+          {biller && billerReport && <BillerReport />}
+          {biller && !billerReport && (
+            <Biller showBillerReport={showBillerReport} />
+          )}
           {user && !patientsView && (
             <Patient
               showHidePopUp={showPopUp}
@@ -545,49 +582,115 @@ function Base(params) {
           {documents && <Organization />}
         </div>
       </div>
-      {false && (
-        <div
-          style={{
-            position: "absolute",
-            width: "80%",
-            zIndex: "50",
-            top: "1.5%",
-            left: "25%",
-          }}
-        >
-          <InviteUser />
-        </div>
-      )}
-      {false && (
-        <div
-          style={{
-            position: "absolute",
-            display: "flex",
-            width: "100%",
-            zIndex: "50",
-            flexDirection: "column",
-            alignItems: "center",
-            top: "20%",
-          }}
-        >
-          <AddOrganization />
-        </div>
-      )}
-      {true && (
-        <div
-          style={{
-            position: "absolute",
-            display: "flex",
-            width: "100%",
-            zIndex: "50",
-            flexDirection: "column",
-            alignItems: "center",
-            top: "1%",
-          }}
-        >
-          <DownloadReportsWarn />
-        </div>
-      )}
+      <div
+        id="inviteUser"
+        style={{
+          position: "absolute",
+          width: "80%",
+          zIndex: "50",
+          top: "1.5%",
+          left: "25%",
+          visibility: "hidden",
+        }}
+      >
+        <InviteUser exit={hideAllPopUps} />
+      </div>
+
+      <div
+        id="AddOrganization"
+        style={{
+          position: "absolute",
+          display: "flex",
+          width: "100%",
+          zIndex: "50",
+          flexDirection: "column",
+          alignItems: "center",
+          top: "20%",
+          visibility: "hidden",
+        }}
+      >
+        <AddOrganization exit={hideAllPopUps} />
+      </div>
+
+      <div
+        id="DownloadReportsWarn"
+        style={{
+          position: "absolute",
+          display: "flex",
+          width: "100%",
+          zIndex: "50",
+          flexDirection: "column",
+          alignItems: "center",
+          top: "20%",
+          visibility: "hidden",
+        }}
+      >
+        <DownloadReportsWarn exit={hideAllPopUps} />
+      </div>
+
+      <div
+        id="DownloadReport"
+        style={{
+          position: "absolute",
+          display: "flex",
+          width: "100%",
+          zIndex: "50",
+          flexDirection: "column",
+          alignItems: "center",
+          top: "20%",
+          visibility: "hidden",
+        }}
+      >
+        <DownloadReport exit={hideAllPopUps} />
+      </div>
+
+      <div
+        id="Calendar"
+        style={{
+          position: "absolute",
+          display: "flex",
+          width: "100%",
+          zIndex: "50",
+          flexDirection: "column",
+          alignItems: "center",
+          top: "15%",
+          visibility: "hidden",
+        }}
+      >
+        <Calendar exit={hideAllPopUps} />
+      </div>
+
+      <div
+        id="Search"
+        style={{
+          position: "absolute",
+          display: "flex",
+          width: "100%",
+          zIndex: "50",
+          flexDirection: "column",
+          alignItems: "center",
+          top: "20%",
+          visibility: "hidden",
+        }}
+      >
+        <Search exit={hideAllPopUps} />
+      </div>
+      <div
+        id="Filter"
+        style={{
+          position: "absolute",
+          display: "flex",
+          width: "100%",
+          zIndex: "50",
+          flexDirection: "column",
+          alignItems: "center",
+          top: "20%",
+          visibility: "hidden",
+        }}
+      >
+        <Filter exit={hideAllPopUps} />
+      </div>
+
       {/* Edit Pop Up Start */}
       {popUp && (
         <div

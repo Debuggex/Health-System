@@ -5,6 +5,13 @@ import { useState } from "react";
 
 function DownloadReportsWarn(params) {
   const [allCheck, setAllCheck] = useState(false);
+  let data=["New","Threshold","Value","Timesince"]
+
+  function showDownload() {
+    
+    document.getElementById("DownloadReportsWarn").style.visibility = "hidden";
+    document.getElementById("DownloadReport").style.visibility="visible";
+  }
 
   return (
     <div
@@ -23,7 +30,7 @@ function DownloadReportsWarn(params) {
     >
       {/* Edit Pop Up Header */}
       <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
-        <div style={{ width: "50%", fontSize: "24px", fontWeight: "600" }}>
+        <div style={{ width: "80%", fontSize: "24px", fontWeight: "600" }}>
           Some columns will not be exported.
         </div>
         <div
@@ -34,356 +41,50 @@ function DownloadReportsWarn(params) {
             alignItems: "center",
             cursor: "pointer",
           }}
-          onClick={() => showPopUp()}
+          onClick={() => params.exit()}
         >
           <img src={cross} alt="" width="18px" height="18px" />
         </div>
       </div>
       <hr color="" style={{ width: "100%", color: "#DBDADD" }} />
-      <div style={{ fontSize: "12px", fontWeight: "500", color: "#929BA6" }}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-        tortor risus, euismod a justo quis, pretium bibe ndum risus.
-        Pellentesque sem eros, porttitor a ultricies id, consequat ut ex.
-        Praesent odio ligula, gravida at pretium at, tempus sit amet felis.{" "}
+      <div className="icon-text" style={{ fontSize: "14px" }}>
+        The following column will NOT be exported to the CSV file:
       </div>
       <br />
-
-      {/* Edit Pop Up Fields Start */}
-
-      {/* First Row */}
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginBottom: "10px",
-        }}
-      >
-        <div style={{ width: "48%" }}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              width: "100%",
-              marginBottom: "10px",
-            }}
-          >
-            <div
-              style={{
-                fontSize: "14px",
-                fontWeight: "500",
-                marginBottom: "15px",
-              }}
-            >
-              First Name <span style={{ color: "#FF0000" }}>*</span>
-            </div>
-            <div
-              style={{
-                border: "1px solid #DBDADD",
-                padding: "10px",
-                borderRadius: "10px",
-              }}
-            >
-              <input type="text" />
-            </div>
-          </div>
-        </div>
-        <div
-          style={{
-            width: "48%",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              width: "100%",
-              marginBottom: "10px",
-            }}
-          >
-            <div
-              style={{
-                fontSize: "14px",
-                fontWeight: "500",
-                marginBottom: "15px",
-              }}
-            >
-              Last Name <span style={{ color: "#FF0000" }}>*</span>
-            </div>
-            <div
-              style={{
-                border: "1px solid #DBDADD",
-                padding: "10px",
-                borderRadius: "10px",
-              }}
-            >
-              <input type="text" />
-            </div>
-          </div>
-        </div>
+      <div className="icon-text" style={{ fontSize: "14px" }}>
+        Last Readings
       </div>
-
-      {/* Second Row */}
-
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "100%",
-          marginBottom: "10px",
-        }}
-      >
+      <br />
+      {data.map((data, key) => (
         <div
+          className="icon-text"
           style={{
             fontSize: "14px",
-            fontWeight: "500",
-            marginBottom: "15px",
-          }}
-        >
-          Email <span style={{ color: "#FF0000" }}>*</span>
-        </div>
-        <div
-          style={{
-            border: "1px solid #DBDADD",
-            padding: "10px",
-            borderRadius: "10px",
-          }}
-        >
-          <input type="text" />
-        </div>
-      </div>
-
-      {/* Third Row */}
-
-      <div
-        style={{
-          width: "100%",
-          marginBottom: "10px",
-        }}
-      >
-        <div
-          style={{
-            fontSize: "14px",
-            fontWeight: "700",
-          }}
-        >
-          Rules
-        </div>
-        <div
-          id="name"
-          className="list-name"
-          style={{
-            width: "100%",
+            margin: "5px 0",
             display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-            marginBottom: "10px",
+            alignItems: "center",
           }}
         >
-          <div
-            className="checkbox-wrapper"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <label className="checkbox-label">
-              <input
-                type="checkbox"
-                className={allCheck ? "checked" : "unChecked"}
-                onChange={(check) => setAllCheck((check) => !check)}
-                onClick={() => {
-                  props.showPatientView();
-                }}
-              />
-            </label>
-          </div>
-          <div>
-            <div style={{ fontSize: "14px" }}>View Data</div>
-            <div className="icon-text" style={{ fontSize: "14px" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
-            </div>
-          </div>
-        </div>
-
-        <div
-          id="name"
-          className="list-name"
-          style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-            marginBottom: "10px",
-          }}
-        >
-          <div
-            className="checkbox-wrapper"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <label className="checkbox-label">
-              <input
-                type="checkbox"
-                className={allCheck ? "checked" : "unChecked"}
-                onChange={(check) => setAllCheck((check) => !check)}
-                onClick={() => {
-                  props.showPatientView();
-                }}
-              />
-            </label>
-          </div>
-          <div>
-            <div style={{ fontSize: "14px" }}>Admin</div>
-            <div className="icon-text" style={{ fontSize: "14px" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
-            </div>
-          </div>
-        </div>
-        <div
-          id="name"
-          className="list-name"
-          style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-            marginBottom: "10px",
-          }}
-        >
-          <div
-            className="checkbox-wrapper"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <label className="checkbox-label">
-              <input
-                type="checkbox"
-                className={allCheck ? "checked" : "unChecked"}
-                onChange={(check) => setAllCheck((check) => !check)}
-                onClick={() => {
-                  props.showPatientView();
-                }}
-              />
-            </label>
-          </div>
-          <div>
-            <div style={{ fontSize: "14px" }}>Patient Management</div>
-            <div className="icon-text" style={{ fontSize: "14px" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Forth Row */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "100%",
-          marginBottom: "10px",
-        }}
-      >
-        <div
-          style={{
-            fontSize: "14px",
-            fontWeight: "700",
-            marginBottom: "15px",
-          }}
-        >
-          Accrues time towards CPT Codes
-        </div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div
-            id="name"
-            className="list-name"
-            style={{
-              width: "20%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              marginBottom: "10px",
-            }}
-          >
+          <span>
             <div
-              className="checkbox-wrapper"
               style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
+                padding: "2px",
+                backgroundColor: "#7D9FEF",
+                borderRadius: "20px",
+                marginRight: "10px",
               }}
-            >
-              <label className="checkbox-label">
-                <input
-                  type="checkbox"
-                  className={allCheck ? "checked" : "unChecked"}
-                  onChange={(check) => setAllCheck((check) => !check)}
-                  onClick={() => {
-                    props.showPatientView();
-                  }}
-                />
-              </label>
-            </div>
-            <div>
-              <div>No</div>
-            </div>
-          </div>
-          <div
-            id="name"
-            className="list-name"
-            style={{
-              width: "20%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              marginBottom: "10px",
-            }}
-          >
-            <div
-              className="checkbox-wrapper"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <label className="checkbox-label">
-                <input
-                  type="checkbox"
-                  className={allCheck ? "checked" : "unChecked"}
-                  onChange={(check) => setAllCheck((check) => !check)}
-                  onClick={() => {
-                    props.showPatientView();
-                  }}
-                />
-              </label>
-            </div>
-            <div>
-              <div>Yes</div>
-            </div>
-          </div>
+            ></div>
+          </span>
+          {data}
         </div>
-        <div style={{ fontSize: "12px", fontWeight: "500", color: "#929BA6" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          tortor risus, euismod a justo quis, pretium bibe ndum risus.
-          Pellentesque sem eros, porttitor a ultricies id, consequat ut ex.
-          Praesent odio ligula, gravida at pretium at, tempus sit amet felis.{" "}
-        </div>
+      ))}
+      <br />
+      <div className="icon-text" style={{ fontSize: "14px" }}>
+        Do you want to export all the other columns to a CSV?
       </div>
+      <br />
+      <br />
+
       {/* Bottom Buttons */}
       <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
         <div
@@ -392,8 +93,10 @@ function DownloadReportsWarn(params) {
             fontSize: "16px",
             fontWeight: "600",
             cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
           }}
-          onClick={() => showPopUp()}
+          onClick={() => params.exit()}
         >
           cancel
         </div>
@@ -406,15 +109,13 @@ function DownloadReportsWarn(params) {
             cursor: "pointer",
           }}
         >
-          <div style={{ width: "50%" }}>
-            <button
-              type="submit"
-              className="primaryButton"
-              onClick={() => showPopUp()}
-            >
-              Send Invitation
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="primaryButton"
+            onClick={() => showDownload()}
+          >
+            Continue
+          </button>
         </div>
       </div>
     </div>

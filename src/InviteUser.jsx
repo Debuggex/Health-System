@@ -385,15 +385,17 @@ function InviteUser(params) {
         </div>
       </div>
       {/* Bottom Buttons */}
-      <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
+      <div style={{ width: "100%", display: "flex", flexDirection: "row",justifyContent:"space-between" }}>
         <div
           style={{
             width: "50%",
             fontSize: "16px",
             fontWeight: "600",
             cursor: "pointer",
+            display:"flex",
+            alignItems:"center"
           }}
-          onClick={() => showPopUp()}
+          onClick={() => params.exit()}
         >
           cancel
         </div>
@@ -406,15 +408,13 @@ function InviteUser(params) {
             cursor: "pointer",
           }}
         >
-          <div style={{ width: "50%" }}>
             <button
               type="submit"
               className="primaryButton"
-              onClick={() => showPopUp()}
+              onClick={() => params.exit()}
             >
               Send Invitation
             </button>
-          </div>
         </div>
       </div>
     </div>
