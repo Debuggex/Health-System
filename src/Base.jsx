@@ -2,7 +2,7 @@ import { useState } from "react";
 import graphIcon from "./assets/GraphColor.svg";
 import profile from "./assets/Profile.svg";
 import people from "./assets/People.svg";
-import documentIcon from "./assets/Document.svg";
+import documentIcon from "./assets/Document.png";
 import Graph from "./assets/Graph.png";
 import profileColor from "./assets/profileColor.png";
 import peopleColor from "./assets/peopleColor.png";
@@ -364,7 +364,7 @@ function Base(params) {
                 activeDocument();
               }}
             >
-              <img src={documentIcon} alt="" width={20} />
+              <img src={documentIcon} alt="" width={25} />
             </div>
           )}
 
@@ -379,7 +379,7 @@ function Base(params) {
                 position: "relative",
               }}
             >
-              <img src={documentColor} alt="" width={20} />
+              <img src={documentColor} alt="" width={25} />
               <div
                 style={{
                   position: "absolute",

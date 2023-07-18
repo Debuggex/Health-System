@@ -86,7 +86,7 @@ function DownloadReport(params) {
             alignItems: "center",
             cursor: "pointer",
           }}
-          onClick={() => showPopUp()}
+          onClick={() => params.exit()}
         >
           <img
             onClick={() => params.exit}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import swap from "./assets/Swap.png";
-import like from "./assets/like.png";
+import filterColor from "./assets/FilterColor.png";
 import Calling from "./assets/Calling.png";
 import Chat from "./assets/Chat.png";
 import dots from "./assets/dots.png";
@@ -30,6 +30,7 @@ function Patient(props){
         bodyScale: 120,
         temperature: 104,
         Readings: 112,
+        LastReading: "04/06/2023",
       },
       {
         name: "Millie Bell",
@@ -39,6 +40,7 @@ function Patient(props){
         bodyScale: 120,
         temperature: 104,
         Readings: 49,
+        LastReading: "04/06/2023",
       },
       {
         name: "Jordan Antoine",
@@ -48,6 +50,7 @@ function Patient(props){
         bodyScale: 120,
         temperature: 104,
         Readings: 49,
+        LastReading: "04/06/2023",
       },
       {
         name: "Mildred Pearson",
@@ -57,6 +60,7 @@ function Patient(props){
         bodyScale: 120,
         temperature: 104,
         Readings: 112,
+        LastReading: "04/06/2023",
       },
       {
         name: "Sai Kapur",
@@ -66,6 +70,7 @@ function Patient(props){
         bodyScale: 120,
         temperature: 104,
         Readings: 49,
+        LastReading: "04/06/2023",
       },
       {
         name: "Gabin Martinez",
@@ -75,6 +80,7 @@ function Patient(props){
         bodyScale: 120,
         temperature: 104,
         Readings: 112,
+        LastReading: "04/06/2023",
       },
       {
         name: "Aimee Brown",
@@ -84,6 +90,7 @@ function Patient(props){
         bodyScale: 120,
         temperature: 104,
         Readings: 112,
+        LastReading: "04/06/2023",
       },
       {
         name: "Mason Walker",
@@ -93,6 +100,7 @@ function Patient(props){
         bodyScale: 120,
         temperature: 104,
         Readings: 112,
+        LastReading: "04/06/2023",
       },
       {
         name: "Sophie Pohl",
@@ -102,6 +110,7 @@ function Patient(props){
         bodyScale: 120,
         temperature: 104,
         Readings: 49,
+        LastReading: "04/06/2023",
       },
     ];
 
@@ -143,13 +152,14 @@ function Patient(props){
             </div>
           </div>
           <div
-            style={{ width: "10%", marginRight: "20px", position: "relative" }}
+            style={{ width: "4%", marginRight: "20px", position: "relative" }}
           >
             <button
               className="filterBtn"
+              style={{width:"100%"}}
               onClick={() => showFilterPop("filter2")}
             >
-              Filter <img src={arrowDown} style={{ marginLeft: "15px" }} />
+              <img src={filterColor} />
             </button>
             <div
               className="filter-popUp"
@@ -158,6 +168,8 @@ function Patient(props){
                 display: "flex",
                 flexDirection: "column",
                 height: "80px",
+                width:"150px",
+                padding:"60px 0"
               }}
             >
               RPM
@@ -167,9 +179,9 @@ function Patient(props){
               <br />
             </div>
           </div>
-          <div style={{ width: "3%" }}>
+          <div style={{ width: "4%" }}>
             <button className="filterBtn">
-              <img src={Upload} width={18} height={18} />
+              <img src={Upload} width={25} height={25} />
             </button>
           </div>
         </div>
@@ -235,10 +247,22 @@ function Patient(props){
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
-                width: "20%",
+                width: "10%",
               }}
             >
               Readings{" "}
+            </div>
+            <div
+              style={{
+                fontSize: "16px",
+                fontWeight: "600",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                width: "10%",
+              }}
+            >
+              Last Reading{" "}
             </div>
             <div
               style={{
@@ -333,10 +357,14 @@ function Patient(props){
                   <div
                     className="readings"
                     style={{
+                      width: "10%",
                       color: `${datas.Readings > 100 ? "#1FBE05" : "#FF0005"}`,
                     }}
                   >
                     {datas.Readings}
+                  </div>
+                  <div style={{ width: "10%" }} className="readings">
+                    {datas.LastReading}
                   </div>
                   <div
                     style={{
@@ -345,6 +373,7 @@ function Patient(props){
                       display: "flex",
                       flexDirection: "row",
                       alignItems: "center",
+                      justifyContent:"center",
                       width: "10%",
                     }}
                   >

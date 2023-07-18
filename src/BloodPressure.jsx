@@ -178,12 +178,12 @@ export default function BloodPressure(params) {
         </div>
         <div className="col-md-1">
           <button className="secondaryButton">
-            <img src={Calendar} alt="" width={18} height={18} />
+            <img src={Calendar} alt="" width={24} height={24} />
           </button>
         </div>
         <div className="col-md-1">
           <button className="secondaryButton">
-            <img src={Upload} alt="" width={18} height={18} />
+            <img src={Upload} alt="" width={24} height={24} />
           </button>
         </div>
       </div>

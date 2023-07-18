@@ -50,18 +50,18 @@ function PatientView(params) {
               <span style={{ color: "#929BA6" }}>Female</span>
             </p>
           </div>
-          <div className="row">
+          <div className="row" style={{display:"flex",justifyContent:"space-between"}}>
             <div className="col-md-2">
               <button className="secondaryButton">
-                <img src={Calling} alt="" width={18} height={18} />
+                <img src={Calling} alt="" width={24} height={24} />
               </button>
             </div>
             <div className="col-md-2">
               <button className="secondaryButton">
-                <img src={Chat} alt="" width={18} height={18} />
+                <img src={Chat} alt="" width={24} height={24} />
               </button>
             </div>
-            <div className="col-md-8">
+            <div className="col-md-7">
               <button className="secondaryButton">Download Record</button>
             </div>
           </div>

@@ -86,7 +86,7 @@ function Search(params) {
             alignItems: "center",
             cursor: "pointer",
           }}
-          onClick={() => showPopUp()}
+          onClick={() => params.exit()}
         >
           <img src={cross} alt="" width="18px" height="18px" />
         </div>
@@ -155,15 +155,14 @@ function Search(params) {
             cursor: "pointer",
           }}
         >
-          <div style={{ width: "50%" }}>
-            <button
+            {/* <button
               type="submit"
               className="primaryButton"
               onClick={() => params.exit()}
             >
               Download
             </button>
-          </div>
+           */}
         </div>
       </div>
     </div>

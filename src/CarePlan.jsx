@@ -27,9 +27,8 @@ function CarePlan(params) {
             justifyContent: "flex-end",
           }}
         >
-          <div className="col-md-4">
             <button className="primaryButton">+ Add Care Plan</button>
-          </div>
+          
         </div>
       </div>
       <div className="col-md-12 rightCard">

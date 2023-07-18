@@ -97,14 +97,14 @@ function Interactions(params) {
             flexDirection: "row",
           }}
         >
-          <div className="col-md-2" style={{ marginRight: "10px" }}>
+          <div className="col-md-3" style={{ marginRight: "10px" }}>
             <button className="secondaryButton">
-              <img src={Calendar} alt="" width={18} height={18} />
+              <img src={Calendar} alt="" width={24} height={24} />
             </button>
           </div>
-          <div className="col-md-2">
+          <div className="col-md-3">
             <button className="secondaryButton">
-              <img src={Upload} alt="" width={18} height={18} />
+              <img src={Upload} alt="" width={24} height={24} />
             </button>
           </div>
         </div>
