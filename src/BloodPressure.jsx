@@ -122,7 +122,7 @@ export default function BloodPressure(params) {
     var angle = Math.atan2(y1 - y2, x1 - x2) * (180 / Math.PI);
     // make hr
     var htmlLine =
-      "<div style='padding:0px; margin:0px; height:" +
+      "<div style='padding:0px; margin:-100px;margin-left:-630px; height:" +
       thickness +
       "px; background-color:" +
       color +
@@ -142,7 +142,7 @@ export default function BloodPressure(params) {
       angle +
       "deg); transform:rotate(" +
       angle +
-      "deg);"+"bottom:15px;"+"' />";
+      "deg);"+"' />";
     //
     // alert(htmlLine);
     document
@@ -168,7 +168,7 @@ export default function BloodPressure(params) {
   },[MonthsValue])
 
   return (
-    <div className="col-md-12" id="BloodPressure">
+    <div className="col-md-12" id="BloodPressure" style={{position:"relative",marginBottom:"20px"}}>
       <div className="row col-md-12">
         <div className="col-md-4 select-wrapper1">
           <select className="secondaryButton">
@@ -178,12 +178,12 @@ export default function BloodPressure(params) {
         </div>
         <div className="col-md-1">
           <button className="secondaryButton">
-            <img src={Calendar} alt="" width={24} height={24} />
+            <img src={Calendar} alt="" width={18} height={18} />
           </button>
         </div>
         <div className="col-md-1">
           <button className="secondaryButton">
-            <img src={Upload} alt="" width={24} height={24} />
+            <img src={Upload} alt="" width={18} height={18} />
           </button>
         </div>
       </div>
