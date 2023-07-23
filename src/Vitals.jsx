@@ -15,18 +15,22 @@ function Vitals(params) {
       <div className="col-md-12">
         <div className="row col-md-12">
           <div className="col-md-4 select-wrapper1">
-            <select className="secondaryButton" onChange={(value)=>setDropDown(event.target.value)}>
+            <select
+              style={{padding:"9px 30px"}}
+              className="secondaryButton"
+              onChange={(value) => setDropDown(event.target.value)}
+            >
               <option value="Vitals">Vitals</option>
               <option value="Blood Pressure">Blood Pressure</option>
             </select>
           </div>
           <div className="col-md-1">
-            <button className="secondaryButton">
+            <button className="filterBtn">
               <img src={Calendar} alt="" width={18} height={18} />
             </button>
           </div>
           <div className="col-md-1">
-            <button className="secondaryButton">
+            <button className="filterBtn">
               <img src={Upload} alt="" width={18} height={18} />
             </button>
           </div>

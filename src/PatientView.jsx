@@ -50,19 +50,21 @@ function PatientView(params) {
               <span style={{ color: "#929BA6" }}>Female</span>
             </p>
           </div>
-          <div className="row" style={{display:"flex",justifyContent:"space-between"}}>
-            <div className="col-md-2">
-              <button className="secondaryButton">
-                <img src={Calling} alt="" width={24} height={24} />
+          <div className="row" style={{ display: "flex" }}>
+            <div className="col-md-2" style={{ padding: "10px 5px 10px 10px" }}>
+              <button className="filterBtn" style={{ margin: "0" }}>
+                <img src={Calling} alt="" width={18} height={18} />
               </button>
             </div>
-            <div className="col-md-2">
-              <button className="secondaryButton">
-                <img src={Chat} alt="" width={24} height={24} />
+            <div className="col-md-2" style={{ padding: "10px 5px 10px 10px" }}>
+              <button className="filterBtn" style={{ margin: "0" }}>
+                <img src={Chat} alt="" width={18} height={18} />
               </button>
             </div>
-            <div className="col-md-7">
-              <button className="secondaryButton">Download Record</button>
+            <div className="col-md-8" style={{ padding: "10px 5px 10px 10px" }}>
+              <button style={{ margin: "0",padding:"9px 30px" }} className="secondaryButton">
+                Download Record
+              </button>
             </div>
           </div>
           <div className="col-md-12">
@@ -109,12 +111,12 @@ function PatientView(params) {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-6 pull-left">
+            <div className="col-md-5 pull-left">
               <p>
                 <span style={{ color: "#929BA6" }}>Devices</span>
               </p>
             </div>
-            <div className="col-md-6 cardData">
+            <div className="col-md-7 cardData">
               <p>
                 Blood Glucose Monitor{" "}
                 <span style={{ cursor: "pointer" }}>

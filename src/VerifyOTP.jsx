@@ -191,6 +191,7 @@ function VerifyOTP(params) {
           {/* Verify Button */}
 
           <button
+            style={{ width: "100%" }}
             type="submit"
             className="primaryButton"
             onClick={params.goToRetype}

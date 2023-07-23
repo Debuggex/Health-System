@@ -135,8 +135,8 @@ function BillerReport(params) {
         >
           Billing
         </div>
-        <div style={{ width: "5%" }}>
-          <button className="secondaryButton">
+        <div style={{ width: "3.5%" }}>
+          <button className="filterBtn">
             <img src={Upload} alt="" width={18} height={18} />
           </button>
         </div>

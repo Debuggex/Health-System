@@ -141,25 +141,28 @@ function Patient(props){
             style={{ width: "25%", marginRight: "20px", position: "relative" }}
           >
             <button
-              className="filterBtn"
+              className="secondaryButton"
               onClick={() => showFilterPop("filter1")}
             >
               Organization{" "}
-              <img src={arrowDown} style={{ marginLeft: "40px" }} />
+              <img
+                src={arrowDown}
+                style={{ marginLeft: "40px", rotate: "180deg" }}
+              />
             </button>
             <div className="filter-popUp" id="filter1">
               Medical Associates of Highland
             </div>
           </div>
           <div
-            style={{ width: "4%", marginRight: "20px", position: "relative" }}
+            style={{ width: "3.5%", marginRight: "20px", position: "relative" }}
           >
             <button
               className="filterBtn"
-              style={{width:"100%"}}
+              style={{ width: "100%" }}
               onClick={() => showFilterPop("filter2")}
             >
-              <img src={filterColor} />
+              <img src={filterColor} width={20} height={20} />
             </button>
             <div
               className="filter-popUp"
@@ -168,8 +171,8 @@ function Patient(props){
                 display: "flex",
                 flexDirection: "column",
                 height: "80px",
-                width:"150px",
-                padding:"60px 0"
+                width: "150px",
+                padding: "60px 0",
               }}
             >
               RPM
@@ -179,9 +182,9 @@ function Patient(props){
               <br />
             </div>
           </div>
-          <div style={{ width: "4%" }}>
+          <div style={{ width: "3.5%" }}>
             <button className="filterBtn">
-              <img src={Upload} width={25} height={25} />
+              <img src={Upload} width={20} height={20} />
             </button>
           </div>
         </div>
@@ -373,7 +376,7 @@ function Patient(props){
                       display: "flex",
                       flexDirection: "row",
                       alignItems: "center",
-                      justifyContent:"center",
+                      justifyContent: "center",
                       width: "10%",
                     }}
                   >

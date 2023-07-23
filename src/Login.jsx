@@ -184,7 +184,7 @@ function Login(params) {
                 <div>Sign In</div>
               </div>
             </div> */}
-            <button type="submit" className="primaryButton" onClick={goToApp}>Sign In</button>
+            <button style={{width:"100%"}}  type="submit" className="primaryButton" onClick={goToApp}>Sign In</button>
 
             <br />
             <br />

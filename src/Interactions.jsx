@@ -1,20 +1,29 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+
+import cross from "./assets/cross.png";
 import Calendar from "./assets/Calendar.png";
 import Upload from "./assets/Upload.png";
 import EllipsisText from "react-ellipsis-text/lib/components/EllipsisText";
 import { useState } from "react";
 
 function Interactions(params) {
-
-  const [Sync,setsync] = useState(false);
+  const [Sync, setsync] = useState(false);
   const [UnSync, setunSync] = useState(false);
+  const [showInteractionDetail, setInteractionDetail] = useState(false);
+  const [intertactionData,setInteractionData] = useState({});
 
-  const hidePopUp =()=>{
-    document.getElementById("shadow").style.visibility="hidden";
+  const hidePopUp = () => {
+    document.getElementById("shadow").style.visibility = "hidden";
     document.getElementById("InteractionPopUp").style.visibility = "hidden";
-    
+  };
+
+  const hideInteraction=()=>{
+    setInteractionDetail(false);
   }
-  
+  const showInteraction = (data) => {
+    setInteractionData(data);
+    setInteractionDetail(true);
+  };
 
   const Readings = [
     {
@@ -22,7 +31,7 @@ function Interactions(params) {
       time: "09:00AM - 11:00AM",
       duration: "30 minutes",
       notes:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mi lectus, pretium et laoreet interdum, ullamcorper quis eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla sed justo molestie, efficitur metus eu, laoreet velit. Duis non nisi sed velit pharetra mollis in vitae magna. Sed accumsan pellentesque magna quis lacinia. Aliquam placerat ultricies tellus vitae dictum. Nullam purus eros, dictum a ultricies non, eleifend at neque. Ut vestibulum nec nunc id luctus. Sed placerat augue non diam fermentum cursus. Mauris pharetra dignissim sapien, sagittis rhoncus turpis efficitur nec. Sed pellentesque, orci nec faucibus ultricies, risus quam accumsan tortor, nec commodo mi ante non quam.Ut porttitor nisi eget risus mattis porttitor eget a mi. In a fermentum mi. Praesent sagittis, quam ac porttitor vehicula, quam ligula rutrum nulla, sed consectetur purus felis vitae eros. Pellentesque sollicitudin erat non augue tempor pretium. Aliquam sit amet mi vel nibh lacinia commodo. Proin non arcu in ligula condimentum egestas ut vel mi. Aliquam accumsan, mauris id gravida pharetra, ante sapien porttitor eros, ac facilisis neque nunc eget justo. Proin aliquam, mauris vitae ornare accumsan, libero sapien molestie eros, non aliquam justo mi ullamcorper elit. Aliquam erat volutpat. Nunc massa purus, aliquet id tristique ac, ultricies et magna. Donec non risus at elit sodales egestas. Duis viverra diam vitae erat gravida feugiat. Nunc enim magna, fermentum quis dictum non, hendrerit vel arcu. Mauris ac facilisis mauris. Aenean eget elit vel orci rutrum tempus id nec ante. Pellentesque vel nunc iaculis, convallis nisl ut, interdum quam.",
+        "Hello dolor sit amet, consectetur adipiscing elit. Duis mi lectus, pretium et laoreet interdum, ullamcorper quis eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla sed justo molestie, efficitur metus eu, laoreet velit. Duis non nisi sed velit pharetra mollis in vitae magna. Sed accumsan pellentesque magna quis lacinia. Aliquam placerat ultricies tellus vitae dictum. Nullam purus eros, dictum a ultricies non, eleifend at neque. Ut vestibulum nec nunc id luctus. Sed placerat augue non diam fermentum cursus. Mauris pharetra dignissim sapien, sagittis rhoncus turpis efficitur nec. Sed pellentesque, orci nec faucibus ultricies, risus quam accumsan tortor, nec commodo mi ante non quam.Ut porttitor nisi eget risus mattis porttitor eget a mi. In a fermentum mi. Praesent sagittis, quam ac porttitor vehicula, quam ligula rutrum nulla, sed consectetur purus felis vitae eros. Pellentesque sollicitudin erat non augue tempor pretium. Aliquam sit amet mi vel nibh lacinia commodo. Proin non arcu in ligula condimentum egestas ut vel mi. Aliquam accumsan, mauris id gravida pharetra, ante sapien porttitor eros, ac facilisis neque nunc eget justo. Proin aliquam, mauris vitae ornare accumsan, libero sapien molestie eros, non aliquam justo mi ullamcorper elit. Aliquam erat volutpat. Nunc massa purus, aliquet id tristique ac, ultricies et magna. Donec non risus at elit sodales egestas. Duis viverra diam vitae erat gravida feugiat. Nunc enim magna, fermentum quis dictum non, hendrerit vel arcu. Mauris ac facilisis mauris. Aenean eget elit vel orci rutrum tempus id nec ante. Pellentesque vel nunc iaculis, convallis nisl ut, interdum quam.",
     },
     {
       date: "Feb 22, 1997",
@@ -82,11 +91,10 @@ function Interactions(params) {
     },
   ];
 
-  const showPopUp=()=>{
-    document.getElementById("shadow").style.visibility="visible";
+  const showPopUp = () => {
+    document.getElementById("shadow").style.visibility = "visible";
     document.getElementById("InteractionPopUp").style.visibility = "visible";
-    
-  }
+  };
   return (
     <div className="col-md-12">
       <div className="row">
@@ -97,14 +105,14 @@ function Interactions(params) {
             flexDirection: "row",
           }}
         >
-          <div className="col-md-3" style={{ marginRight: "10px" }}>
-            <button className="secondaryButton">
-              <img src={Calendar} alt="" width={24} height={24} />
+          <div className="col-md-2" style={{ marginRight: "10px" }}>
+            <button className="filterBtn">
+              <img src={Calendar} alt="" width={18} height={18} />
             </button>
           </div>
-          <div className="col-md-3">
-            <button className="secondaryButton">
-              <img src={Upload} alt="" width={24} height={24} />
+          <div className="col-md-2">
+            <button className="filterBtn">
+              <img src={Upload} alt="" width={18} height={18} />
             </button>
           </div>
         </div>
@@ -116,57 +124,111 @@ function Interactions(params) {
             justifyContent: "flex-end",
           }}
         >
-          <div className="col-md-4">
-            <button className="primaryButton" onClick={()=>{showPopUp()}}>+ Interactions</button>
+          <div
+            className="col-md-4"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "flex-end",
+            }}
+          >
+            <button
+              className="primaryButton"
+              onClick={() => {
+                showPopUp();
+              }}
+            >
+              + Interactions
+            </button>
           </div>
         </div>
       </div>
 
       <div className="listCard" style={{ overflowY: "hidden" }}>
         <div className="list" style={{ height: "inherit" }}>
-          <div
-            className="listDataContainer"
-            style={{ backgroundColor: "#E9EBEA" }}
-          >
-            <div className="listData">
-              <h4>Date</h4>
+          {!showInteractionDetail && (
+            <div
+              className="listDataContainer"
+              style={{ backgroundColor: "#E9EBEA" }}
+            >
+              <div className="listData">
+                <h4>Date</h4>
+              </div>
+              <div className="listData">
+                <h4>Time</h4>
+              </div>
+              <div className="listData">
+                <h4>Duration</h4>
+              </div>
+              <div className="listData">
+                <h4>Notes</h4>
+              </div>
             </div>
-            <div className="listData">
-              <h4>Time</h4>
-            </div>
-            <div className="listData">
-              <h4>Duration</h4>
-            </div>
-            <div className="listData">
-              <h4>Notes</h4>
-            </div>
-          </div>
+          )}
 
-          <div>
-            {Readings.map((data, key) => (
-              <div
-                className="listDataContainer"
-                style={{
-                  backgroundColor: "white",
-                  border: "1px solid #EFEEF1",
-                }}
-              >
-                <div className="listData">
-                  <h4>{data.date}</h4>
+          {showInteractionDetail && (
+            <div>
+              <div style={{ display: "flex", flexDirection: "row" }}>
+                <div
+                  className="col-md-6"
+                  style={{
+                    padding: "30px",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <h4 style={{ fontSize: "24px" }}>Notes</h4>
+                  <p style={{ margin: "0" }}>{intertactionData.date}, {intertactionData.time}</p>
                 </div>
-                <div className="listData">
-                  <h4>{data.time}</h4>
-                </div>
-                <div className="listData">
-                  <h4>{data.duration}</h4>
-                </div>
-                <div className="listData">
-                  <h4>
-                    <EllipsisText text={data.notes} length="15" />
-                  </h4>
+                <div
+                  className="col-md-6"
+                  style={{
+                    padding: "30px",
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    alignItems: "center",
+                    cursor:"pointer"
+                  }}
+                >
+                  <img onClick={()=>{hideInteraction()}} src={cross} alt="" width="18px" height="18px" />
                 </div>
               </div>
-            ))}
+              <hr style={{ margin: "0" }} />
+              <div style={{padding:"30px"}}>
+                {intertactionData.notes}
+              </div>
+            </div>
+          )}
+
+          <div>
+            {!showInteractionDetail &&
+              Readings.map((data, key) => (
+                <div
+                  className="listDataContainer"
+                  style={{
+                    backgroundColor: "white",
+                    border: "1px solid #EFEEF1",
+                    cursor: "pointer",
+                  }}
+                  onClick={()=>{showInteraction(data)}}
+                >
+                  <div className="listData">
+                    <h4>{data.date}</h4>
+                  </div>
+                  <div className="listData">
+                    <h4>{data.time}</h4>
+                  </div>
+                  <div className="listData">
+                    <h4>{data.duration}</h4>
+                  </div>
+                  <div className="listData">
+                    <h4>
+                      <EllipsisText text={data.notes} length="15" />
+                    </h4>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </div>
@@ -186,7 +248,7 @@ function Interactions(params) {
           left: "25%",
           bottom: "0px",
           borderRadius: "20px",
-          visibility:"hidden"
+          visibility: "hidden",
         }}
       >
         <div
@@ -279,7 +341,7 @@ function Interactions(params) {
             Synchronous communication
           </label>
           <div>
-            <div className="col-md-6 row">
+            <div className="col-md-7 row">
               <div className="col-md-6">
                 <div className="checkbox-wrapper-popUp">
                   <label
@@ -370,16 +432,14 @@ function Interactions(params) {
               flexDirection: "row",
             }}
           >
-            <div className="col-md-6">
-              <button
-                className="primaryButton"
-                onClick={() => {
-                  hidePopUp();
-                }}
-              >
-                Create
-              </button>
-            </div>
+            <button
+              className="primaryButton"
+              onClick={() => {
+                hidePopUp();
+              }}
+            >
+              Create
+            </button>
           </div>
         </div>
       </div>

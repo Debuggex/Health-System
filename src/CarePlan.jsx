@@ -14,7 +14,7 @@ function CarePlan(params) {
           }}
         >
           <div className="col-md-2">
-            <button className="secondaryButton">
+            <button className="filterBtn">
               <img src={Upload} alt="" width={18} height={18} />
             </button>
           </div>
@@ -27,8 +27,7 @@ function CarePlan(params) {
             justifyContent: "flex-end",
           }}
         >
-            <button className="primaryButton">+ Add Care Plan</button>
-          
+          <button className="primaryButton">+ Add Care Plan</button>
         </div>
       </div>
       <div className="col-md-12 rightCard">

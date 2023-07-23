@@ -115,6 +115,7 @@ function ForgotPassword1(props){
 
          {/* Request OTP Button */}
          <button
+           style={{ width: "100%" }}
            type="submit"
            className="primaryButton"
            onClick={props.goToOTP}
@@ -130,7 +131,6 @@ function ForgotPassword1(props){
          <br />
          <br />
          <br />
-        
        </div>
      </div>
    </div>

@@ -110,6 +110,7 @@ function RetypePassword(props){
 
             {/* Request OTP Button */}
             <button
+              style={{ width: "100%" }}
               type="submit"
               className="primaryButton"
               onClick={props.goToLogin}

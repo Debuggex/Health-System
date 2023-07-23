@@ -314,14 +314,12 @@ function AddDevice(params) {
             flexDirection: "row",
           }}
         >
-          <div className="col-md-4">
             <button
               className="primaryButton"
               onClick={() => params.addDeviceFun()}
             >
               Add Device
-            </button>
-          </div>
+          </button>
         </div>
       </div>
     </div>

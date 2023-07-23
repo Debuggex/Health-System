@@ -34,7 +34,7 @@ function InviteUser(params) {
             alignItems: "center",
             cursor: "pointer",
           }}
-          onClick={() => showPopUp()}
+          onClick={() => params.exit()()}
         >
           <img src={cross} alt="" width="18px" height="18px" />
         </div>
@@ -385,15 +385,22 @@ function InviteUser(params) {
         </div>
       </div>
       {/* Bottom Buttons */}
-      <div style={{ width: "100%", display: "flex", flexDirection: "row",justifyContent:"space-between" }}>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
         <div
           style={{
             width: "50%",
             fontSize: "16px",
             fontWeight: "600",
             cursor: "pointer",
-            display:"flex",
-            alignItems:"center"
+            display: "flex",
+            alignItems: "center",
           }}
           onClick={() => params.exit()}
         >
@@ -408,13 +415,13 @@ function InviteUser(params) {
             cursor: "pointer",
           }}
         >
-            <button
-              type="submit"
-              className="primaryButton"
-              onClick={() => params.exit()}
-            >
-              Send Invitation
-            </button>
+          <button
+            type="submit"
+            className="primaryButton"
+            onClick={() => params.exit()}
+          >
+            Send Invitation
+          </button>
         </div>
       </div>
     </div>
