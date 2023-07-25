@@ -65,7 +65,7 @@ function OrganizationDetail(params) {
               Add Organization
             </button>
           </div>
-          <div className="col-md-12 leftCard">
+          <div className="col-md-4 leftCard">
             <div className="col-md-12">
               <h4>Organization Name</h4>
             </div>
