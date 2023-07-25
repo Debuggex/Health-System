@@ -7,7 +7,6 @@ import Graph from "./assets/Graph.png";
 import profileColor from "./assets/profileColor.png";
 import peopleColor from "./assets/peopleColor.png";
 import documentColor from "./assets/documentColor.png";
-import cross from "./assets/cross.png";
 import logo from "./assets/Logo.png";
 import billers from "./assets/biller.png";
 import billerColor from "./assets/billerColor.png";
@@ -37,6 +36,8 @@ import DownloadReport from "./DownloadReport";
 import Calendar from "./Calendar";
 import Search from "./Search";
 import Filter from "./Filter";
+import EditUser from "./EditUser";
+import OrganizationDetail from "./OrganizationDetail";
 
 function Base(params) {
   const [dashboard, setDashboard] = useState(true);
@@ -50,6 +51,7 @@ function Base(params) {
   const [helpSetting, sethelpSetting] = useState(false);
   const [biller, setbiller] = useState(false);
   const [billerReport, setBillerReport] = useState(false);
+  const [organizationDetial,setOrganizationDetail] = useState(false);
   
 
   const [popUp, setPopUp] = useState(false);
@@ -110,6 +112,8 @@ function Base(params) {
     document.getElementById("Calendar").style.visibility = "hidden";
     // Filter
     document.getElementById("Filter").style.visibility = "hidden";
+    // Edit User
+    document.getElementById("EditUser").style.visibility="hidden";
   }
 
   const showaSetting = function (param) {
@@ -137,6 +141,10 @@ function Base(params) {
   const showPopUp = function () {
     setPopUp(!popUp);
   };
+
+  const showOrganization = function(){
+    setOrganizationDetail(!organizationDetial)
+  }
 
   const activeUser = function () {
     offAll();
@@ -565,7 +573,9 @@ function Base(params) {
           {helpSetting && <HelpAndSecurity exit={activeDashboard} />}
 
           {dashboard && <Dashboard />}
-          {biller && billerReport && <BillerReport />}
+          {biller && billerReport && (
+            <BillerReport showBillerReport={showBillerReport} />
+          )}
           {biller && !billerReport && (
             <Biller showBillerReport={showBillerReport} />
           )}
@@ -579,7 +589,12 @@ function Base(params) {
             <PatientView showPatientView={showPatientView} />
           )}
           {patients && <UserList showHidePopUp={showPopUp} />}
-          {documents && <Organization />}
+          {documents && !organizationDetial && (
+            <Organization showOrganization={showOrganization} />
+          )}
+          {documents && organizationDetial && (
+            <OrganizationDetail showOrganization={showOrganization} />
+          )}
         </div>
       </div>
       <div
@@ -605,11 +620,27 @@ function Base(params) {
           zIndex: "50",
           flexDirection: "column",
           alignItems: "center",
-          top: "20%",
+          top: "2%",
           visibility: "hidden",
         }}
       >
         <AddOrganization exit={hideAllPopUps} />
+      </div>
+
+      <div
+        id="EditUser"
+        style={{
+          position: "absolute",
+          display: "flex",
+          width: "100%",
+          zIndex: "50",
+          flexDirection: "column",
+          alignItems: "center",
+          top: "3%",
+          visibility: "hidden",
+        }}
+      >
+        <EditUser exit={hideAllPopUps} />
       </div>
 
       <div
@@ -690,301 +721,6 @@ function Base(params) {
       >
         <Filter exit={hideAllPopUps} />
       </div>
-
-      {/* Edit Pop Up Start */}
-      {popUp && (
-        <div
-          id="PatientEditPopUp"
-          style={{
-            display: "flex",
-            position: "absolute",
-            width: "70vw",
-            top: "5%",
-            borderRadius: "20px",
-            backgroundColor: "white",
-            zIndex: "51",
-            flexDirection: "column",
-            padding: "40px",
-          }}
-        >
-          {/* Edit Pop Up Header */}
-          <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
-            <div style={{ width: "50%", fontSize: "24px", fontWeight: "600" }}>
-              Edit User
-            </div>
-            <div
-              style={{
-                width: "50%",
-                display: "flex",
-                justifyContent: "flex-end",
-                alignItems: "center",
-                cursor: "pointer",
-              }}
-              onClick={() => showPopUp()}
-            >
-              <img src={cross} alt="" width="18px" height="18px" />
-            </div>
-          </div>
-          <br />
-          <hr color="" style={{ width: "100%", color: "#DBDADD" }} />
-          <br />
-          <div
-            style={{ fontSize: "14px", fontWeight: "500", color: "#929BA6" }}
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque tortor risus, euismod a justo quis, pretium bibe ndum
-            risus. Pellentesque sem eros, porttitor a ultricies id, consequat ut
-            ex. Praesent odio ligula, gravida at pretium at, tempus sit amet
-            felis.{" "}
-          </div>
-          <br />
-
-          {/* Edit Pop Up Fields Start */}
-
-          {/* First Row */}
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginBottom: "10px",
-            }}
-          >
-            <div style={{ width: "45%" }}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                  marginBottom: "10px",
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: "500",
-                    marginBottom: "15px",
-                  }}
-                >
-                  First Name <span style={{ color: "#FF0000" }}>*</span>
-                </div>
-                <div
-                  style={{
-                    border: "1px solid #DBDADD",
-                    padding: "10px",
-                    borderRadius: "10px",
-                  }}
-                >
-                  <input type="text" />
-                </div>
-              </div>
-            </div>
-            <div
-              style={{
-                width: "45%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                  marginBottom: "10px",
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: "500",
-                    marginBottom: "15px",
-                  }}
-                >
-                  Last Name <span style={{ color: "#FF0000" }}>*</span>
-                </div>
-                <div
-                  style={{
-                    border: "1px solid #DBDADD",
-                    padding: "10px",
-                    borderRadius: "10px",
-                  }}
-                >
-                  <input type="text" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Second Row */}
-
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              width: "100%",
-              marginBottom: "10px",
-            }}
-          >
-            <div
-              style={{
-                fontSize: "16px",
-                fontWeight: "500",
-                marginBottom: "15px",
-              }}
-            >
-              Email <span style={{ color: "#FF0000" }}>*</span>
-            </div>
-            <div
-              style={{
-                border: "1px solid #DBDADD",
-                padding: "10px",
-                borderRadius: "10px",
-              }}
-            >
-              <input type="text" />
-            </div>
-          </div>
-
-          {/* Third Row */}
-
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginBottom: "10px",
-            }}
-          >
-            <div style={{ width: "45%" }}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                  marginBottom: "10px",
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: "500",
-                    marginBottom: "15px",
-                  }}
-                >
-                  Adherents
-                </div>
-                <div
-                  style={{
-                    border: "1px solid #DBDADD",
-                    padding: "10px",
-                    borderRadius: "10px",
-                  }}
-                >
-                  <input type="text" />
-                </div>
-              </div>
-            </div>
-            <div
-              style={{
-                width: "45%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                  marginBottom: "10px",
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: "500",
-                    marginBottom: "15px",
-                  }}
-                >
-                  Readings
-                </div>
-                <div
-                  style={{
-                    border: "1px solid #DBDADD",
-                    padding: "10px",
-                    borderRadius: "10px",
-                  }}
-                >
-                  <input type="text" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Forth Row */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              width: "100%",
-              marginBottom: "10px",
-            }}
-          >
-            <div
-              style={{
-                fontSize: "16px",
-                fontWeight: "500",
-                marginBottom: "15px",
-              }}
-            >
-              Location
-            </div>
-            <div
-              style={{
-                border: "1px solid #DBDADD",
-                padding: "10px",
-                borderRadius: "10px",
-              }}
-            >
-              <input type="text" />
-            </div>
-          </div>
-          {/* Bottom Buttons */}
-          <br />
-          <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
-            <div
-              style={{
-                width: "50%",
-                fontSize: "16px",
-                fontWeight: "600",
-                cursor: "pointer",
-              }}
-              onClick={() => showPopUp()}
-            >
-              cancel
-            </div>
-            <div
-              style={{
-                width: "50%",
-                display: "flex",
-                justifyContent: "flex-end",
-                alignItems: "center",
-                cursor: "pointer",
-              }}
-            >
-              <div style={{ width: "50%" }}>
-                <button
-                  type="submit"
-                  className="primaryButton"
-                  onClick={() => showPopUp()}
-                >
-                  Send Invitation
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      {/* Edit Pop Up End */}
     </div>
   );
 }

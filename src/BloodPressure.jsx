@@ -167,22 +167,42 @@ export default function BloodPressure(params) {
 
   },[MonthsValue])
 
+  function showElements(params) {
+    if (params == "BP") {
+      setDropDown("Blood Pressure");
+    }
+  }
+    function showCalendar(params) {
+      document.getElementById("Calendar").style.visibility = "visible";
+      document.getElementById("shadow").style.visibility = "visible";
+    }
+
   return (
-    <div className="col-md-12" id="BloodPressure" style={{position:"relative",marginBottom:"20px"}}>
+    <div
+      className="col-md-12"
+      id="BloodPressure"
+      style={{ position: "relative", marginBottom: "20px" }}
+    >
       <div className="row col-md-12">
-        <div className="col-md-4 select-wrapper1">
-          <select className="secondaryButton">
-            <option value="0">Blood Pressure</option>
-            <option value="1">Vitals</option>
-          </select>
+        <div className="col-md-7" style={{ display: "flex" }}>
+          <button
+            className="roundButton"
+            onClick={() => {
+              showElements("BP");
+            }}
+          >
+            BP
+          </button>
+          <button className="roundButton">Blood Glucose</button>
+          <button className="roundButton">Heart Rate</button>
         </div>
         <div className="col-md-1">
-          <button className="secondaryButton">
+          <button className="filterBtn" onClick={()=>{showCalendar()}}>
             <img src={Calendar} alt="" width={18} height={18} />
           </button>
         </div>
         <div className="col-md-1">
-          <button className="secondaryButton">
+          <button className="filterBtn">
             <img src={Upload} alt="" width={18} height={18} />
           </button>
         </div>

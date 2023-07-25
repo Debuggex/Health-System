@@ -52,78 +52,436 @@ function AddOrganization(params) {
 
       {/* Edit Pop Up Fields Start */}
 
-      {/* First Row */}
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginBottom: "10px",
-        }}
-      >
+      <div className="row" style={{ marginBottom: "10px" }}>
+        {/* First Row */}
         <div
           style={{
-            width: "100%",
+            width: "50%",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
           }}
         >
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
               width: "100%",
-              marginBottom: "10px",
             }}
           >
             <div
               style={{
-                fontSize: "14px",
-                fontWeight: "500",
-                marginBottom: "15px",
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
               }}
             >
-              Organization Name <span style={{ color: "#FF0000" }}>*</span>
-            </div>
-            <div
-              style={{
-                border: "1px solid #DBDADD",
-                padding: "10px",
-                borderRadius: "10px",
-              }}
-            >
-              <input type="text" />
+              <div
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "500",
+
+                  marginBottom: "5px",
+                }}
+              >
+                Organization Name <span style={{ color: "#FF0000" }}>*</span>
+              </div>
+              <div
+                style={{
+                  border: "1px solid #DBDADD",
+                  padding: "10px",
+                  borderRadius: "10px",
+                }}
+              >
+                <input type="text" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Second Row */}
+        {/* Second Row */}
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "100%",
-          marginBottom: "10px",
-        }}
-      >
         <div
           style={{
-            fontSize: "14px",
-            fontWeight: "500",
-            marginBottom: "15px",
+            display: "flex",
+            flexDirection: "column",
+            width: "50%",
           }}
         >
-          Location <span style={{ color: "#FF0000" }}>*</span>
+          <div
+            style={{
+              fontSize: "14px",
+              fontWeight: "500",
+              marginBottom: "5px",
+            }}
+          >
+            Location <span style={{ color: "#FF0000" }}>*</span>
+          </div>
+          <div
+            style={{
+              border: "1px solid #DBDADD",
+              padding: "10px",
+              borderRadius: "10px",
+            }}
+          >
+            <input type="text" />
+          </div>
         </div>
+      </div>
+      <div className="row" style={{ marginBottom: "10px" }}>
+        {/* First Row */}
         <div
           style={{
-            border: "1px solid #DBDADD",
-            padding: "10px",
-            borderRadius: "10px",
+            width: "50%",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
           }}
         >
-          <input type="text" />
+          <div
+            style={{
+              width: "100%",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "500",
+
+                  marginBottom: "5px",
+                }}
+              >
+                Nature of business <span style={{ color: "#FF0000" }}>*</span>
+              </div>
+              <div className="col-md-12 select-wrapper3">
+                <select name="DeviceType" className="" id="MobileNumber">
+                  <option value="0"></option>
+                  <option value="1">+91 987 654 5432</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Second Row */}
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "50%",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "14px",
+              fontWeight: "500",
+              marginBottom: "5px",
+            }}
+          >
+            Phone Number <span style={{ color: "#FF0000" }}>*</span>
+          </div>
+          <div
+            style={{
+              border: "1px solid #DBDADD",
+              padding: "10px",
+              borderRadius: "10px",
+            }}
+          >
+            <input type="text" />
+          </div>
+        </div>
+      </div>
+      <div className="row" style={{ marginBottom: "10px" }}>
+        {/* First Row */}
+        <div
+          style={{
+            width: "50%",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "500",
+
+                  marginBottom: "5px",
+                }}
+              >
+                Facility Name <span style={{ color: "#FF0000" }}>*</span>
+              </div>
+              <div
+                style={{
+                  border: "1px solid #DBDADD",
+                  padding: "10px",
+                  borderRadius: "10px",
+                }}
+              >
+                <input type="text" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Second Row */}
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "50%",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "14px",
+              fontWeight: "500",
+              marginBottom: "5px",
+            }}
+          >
+            Facility Type <span style={{ color: "#FF0000" }}>*</span>
+          </div>
+          <div
+            style={{
+              border: "1px solid #DBDADD",
+              padding: "10px",
+              borderRadius: "10px",
+            }}
+          >
+            <input type="text" />
+          </div>
+        </div>
+      </div>
+      <div className="row" style={{ marginBottom: "10px" }}>
+        {/* First Row */}
+        <div
+          style={{
+            width: "50%",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "500",
+
+                  marginBottom: "5px",
+                }}
+              >
+                Address Line 1 <span style={{ color: "#FF0000" }}>*</span>
+              </div>
+              <div
+                style={{
+                  border: "1px solid #DBDADD",
+                  padding: "10px",
+                  borderRadius: "10px",
+                }}
+              >
+                <input type="text" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Second Row */}
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "50%",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "14px",
+              fontWeight: "500",
+              marginBottom: "5px",
+            }}
+          >
+            Address Line 2 <span style={{ color: "#FF0000" }}>*</span>
+          </div>
+          <div
+            style={{
+              border: "1px solid #DBDADD",
+              padding: "10px",
+              borderRadius: "10px",
+            }}
+          >
+            <input type="text" />
+          </div>
+        </div>
+      </div>
+      <div className="row" style={{ marginBottom: "10px" }}>
+        {/* First Row */}
+        <div
+          style={{
+            width: "50%",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "500",
+
+                  marginBottom: "5px",
+                }}
+              >
+                City <span style={{ color: "#FF0000" }}>*</span>
+              </div>
+              <div className="col-md-12 select-wrapper3">
+                <select name="DeviceType" className="" id="MobileNumber">
+                  <option value="0"></option>
+                  <option value="1">+91 987 654 5432</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Second Row */}
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "50%",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "14px",
+              fontWeight: "500",
+              marginBottom: "5px",
+            }}
+          >
+            State <span style={{ color: "#FF0000" }}>*</span>
+          </div>
+          <div className="col-md-12 select-wrapper3">
+            <select name="DeviceType" className="" id="MobileNumber">
+              <option value="0"></option>
+              <option value="1">+91 987 654 5432</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div className="row" style={{ marginBottom: "10px" }}>
+        {/* First Row */}
+        <div
+          style={{
+            width: "50%",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "500",
+
+                  marginBottom: "5px",
+                }}
+              >
+                Zip Code <span style={{ color: "#FF0000" }}>*</span>
+              </div>
+              <div
+                style={{
+                  border: "1px solid #DBDADD",
+                  padding: "10px",
+                  borderRadius: "10px",
+                }}
+              >
+                <input type="text" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Second Row */}
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "50%",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "14px",
+              fontWeight: "500",
+              marginBottom: "5px",
+            }}
+          >
+            Country <span style={{ color: "#FF0000" }}>*</span>
+          </div>
+          <div className="col-md-12 select-wrapper3">
+            <select name="DeviceType" className="" id="MobileNumber">
+              <option value="0"></option>
+              <option value="1">+91 987 654 5432</option>
+            </select>
+          </div>
         </div>
       </div>
 

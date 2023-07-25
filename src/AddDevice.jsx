@@ -9,128 +9,8 @@ function AddDevice(params) {
         borderRadius: "20px",
         padding: "20px 20px",
         backgroundColor: "white",
-        height:"125%"
       }}
     >
-      <div className="row">
-        <div className="col-md-4" style={{ marginBottom: "20px" }}>
-          <label
-            htmlFor="MRN"
-            style={{
-              color: "#929BA6",
-              fontSize: "16px",
-              fontWeight: "600",
-              marginBottom: "5px",
-            }}
-          >
-            MRN#
-          </label>
-          <input
-            id="MRN"
-            type="text"
-            style={{
-              border: "1px solid #DBDADD",
-              padding: "10px",
-              borderRadius: "10px",
-              fontSize: "14px",
-            }}
-          />
-        </div>
-      </div>
-      <div className="row" style={{ marginBottom: "20px" }}>
-        <div className="col-md-4">
-          <label
-            htmlFor="FName"
-            style={{
-              color: "#929BA6",
-              fontSize: "16px",
-              fontWeight: "600",
-              marginBottom: "5px",
-            }}
-          >
-            First Name
-          </label>
-          <input
-            type="text"
-            id="FName"
-            style={{
-              border: "1px solid #DBDADD",
-              padding: "10px",
-              borderRadius: "10px",
-              fontSize: "14px",
-            }}
-          />
-        </div>
-
-        <div className="col-md-4">
-          <label
-            htmlFor="MName"
-            style={{
-              color: "#929BA6",
-              fontSize: "16px",
-              fontWeight: "600",
-              marginBottom: "5px",
-            }}
-          >
-            Middle Name
-          </label>
-          <input
-            type="text"
-            id="MName"
-            style={{
-              border: "1px solid #DBDADD",
-              padding: "10px",
-              borderRadius: "10px",
-              fontSize: "14px",
-            }}
-          />
-        </div>
-
-        <div className="col-md-4">
-          <label
-            htmlFor="LName"
-            style={{
-              color: "#929BA6",
-              fontSize: "16px",
-              fontWeight: "600",
-              marginBottom: "5px",
-            }}
-          >
-            Last Name
-          </label>
-          <input
-            type="text"
-            id="LName"
-            style={{
-              border: "1px solid #DBDADD",
-              padding: "10px",
-              borderRadius: "10px",
-              fontSize: "14px",
-            }}
-          />
-        </div>
-      </div>
-
-      <div className="row" style={{ marginBottom: "20px" }}>
-        <div className="col-md-4 select-wrapper">
-          <label
-            htmlFor="MobileNumber"
-            style={{
-              color: "#929BA6",
-              fontSize: "16px",
-              fontWeight: "600",
-              marginBottom: "5px",
-            }}
-          >
-            Mobile Number *
-          </label>
-          <select name="MobileNumber" className="" id="MobileNumber">
-            <option value="0">Select Mobile Number</option>
-            <option value="1">+91 987 654 5432</option>
-          </select>
-        </div>
-      </div>
-
       <div className="row" style={{ marginBottom: "20px" }}>
         <div className="col-md-4 select-wrapper">
           <label
@@ -301,6 +181,7 @@ function AddDevice(params) {
           <div className="col-md-4">
             <h4
               style={{ cursor: "pointer", padding: "10px 0", margin: "10px 0" }}
+              onClick={()=>{params.addDeviceFun()}}
             >
               Cancel
             </h4>

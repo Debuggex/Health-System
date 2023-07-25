@@ -132,60 +132,103 @@ function Patient(props){
     }
 
     const showPop=function(){
-      showHidePopUp();
+      document.getElementById("EditUser").style.visibility = "visible";
+      document.getElementById("shadow").style.visibility="visible";
     }
     return (
       <div className="list">
-        <div className="filter-container">
-          <div
-            style={{ width: "25%", marginRight: "20px", position: "relative" }}
-          >
-            <button
-              className="secondaryButton"
-              onClick={() => showFilterPop("filter1")}
-            >
-              Organization{" "}
-              <img
-                src={arrowDown}
-                style={{ marginLeft: "40px", rotate: "180deg" }}
-              />
-            </button>
-            <div className="filter-popUp" id="filter1">
-              Medical Associates of Highland
-            </div>
-          </div>
-          <div
-            style={{ width: "3.5%", marginRight: "20px", position: "relative" }}
-          >
-            <button
-              className="filterBtn"
-              style={{ width: "100%" }}
-              onClick={() => showFilterPop("filter2")}
-            >
-              <img src={filterColor} width={20} height={20} />
-            </button>
+        <div
+          className="filter-container"
+          style={{ justifyContent: "space-between" }}
+        >
+          <div style={{ display: "flex", flexDirection: "row", width: "50%" }}>
             <div
-              className="filter-popUp"
-              id="filter2"
               style={{
-                display: "flex",
-                flexDirection: "column",
-                height: "80px",
-                width: "150px",
-                padding: "60px 0",
+                width: "50%",
+                marginRight: "20px",
+                position: "relative",
               }}
             >
-              RPM
-              <br />
-              <hr style={{ width: "80%" }} color="#DBDADD" />
-              CCM
-              <br />
+              <button
+                className="secondaryButton"
+                onClick={() => showFilterPop("filter1")}
+              >
+                Organization{" "}
+                <img
+                  src={arrowDown}
+                  style={{ marginLeft: "40px", rotate: "180deg" }}
+                />
+              </button>
+              <div className="filter-popUp" id="filter1">
+                Medical Associates of Highland
+              </div>
+            </div>
+            <div
+              style={{
+                width: "7%",
+                marginRight: "20px",
+                position: "relative",
+              }}
+            >
+              <button
+                className="filterBtn"
+                style={{ width: "100%" }}
+                onClick={() => showFilterPop("filter2")}
+              >
+                <img src={filterColor} width={20} height={20} />
+              </button>
+              <div
+                className="filter-popUp"
+                id="filter2"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "80px",
+                  width: "150px",
+                  padding: "60px 0",
+                }}
+              >
+                RPM
+                <br />
+                <hr style={{ width: "80%" }} color="#DBDADD" />
+                CCM
+                <br />
+              </div>
+            </div>
+            <div style={{ width: "7%" }}>
+              <button className="filterBtn">
+                <img src={Upload} width={20} height={20} />
+              </button>
             </div>
           </div>
-          <div style={{ width: "3.5%" }}>
-            <button className="filterBtn">
-              <img src={Upload} width={20} height={20} />
-            </button>
+          <div
+            className="col-md-6"
+            style={{
+              margin: "10px",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "flex-end",
+            }}
+          >
+            <div
+              className="col-md-4"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-end",
+                marginRight: "10px",
+              }}
+            >
+              <p style={{ margin: 0 }}>No. of patients per page</p>
+            </div>
+            <div className="col-md-2 select-wrapper3">
+              <select name="DeviceList" className="" id="MobileNumber">
+                <option value="0">100</option>
+                <option value="1">150</option>
+                <option value="1">200</option>
+                <option value="1">250</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -413,14 +456,14 @@ function Patient(props){
                         key={index}
                         style={{
                           position: "absolute",
-                          padding: "20px 20px",
+                          padding: "10px 20px",
                           backgroundColor: "white",
                           display: "flex",
                           top: "25px",
                           flexDirection: "column",
                           borderRadius: "10px",
                           boxShadow: "0 0 5px 0px rgba(182, 169, 169, 0.25)",
-                          width: "100px",
+                          width: "150px",
                           visibility: "hidden",
                           zIndex: `${index + 5}`,
                         }}
@@ -454,7 +497,7 @@ function Patient(props){
                             alignItems: "center",
                             width: "100%",
                             borderBottom: "2px solid #DADADA",
-                            padding: "5px 0",
+                            padding: "10px 0",
                           }}
                         >
                           <img
@@ -474,12 +517,11 @@ function Patient(props){
                             fontSize: "14px",
                             alignItems: "center",
                             width: "100%",
-                            borderBottom: "2px solid #DADADA",
-                            padding: "5px 0",
+                            padding: "10px 0",
                             cursor: "pointer",
                             zIndex: "60",
                           }}
-                          onClick={() => props.showHidePopUp()}
+                          onClick={() => showPop()}
                         >
                           <img
                             src={edit}

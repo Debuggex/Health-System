@@ -143,7 +143,7 @@ function UserList(props) {
     document.getElementById("inviteUser").style.visibility = "visible";
   }; 
   return (
-    <div style={{width:"100%"}}>
+    <div style={{ width: "100%" }}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div style={{ width: "50%" }}></div>
         <button className="primaryButton" onClick={() => showUser()}>
@@ -410,7 +410,9 @@ function UserList(props) {
                             cursor: "pointer",
                             zIndex: "60",
                           }}
-                          onClick={() => props.showHidePopUp()}
+                          onClick={() => {
+                            showUser();
+                          }}
                         >
                           <img
                             src={edit}

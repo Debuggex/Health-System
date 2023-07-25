@@ -24,6 +24,10 @@ function Interactions(params) {
     setInteractionData(data);
     setInteractionDetail(true);
   };
+    function showCalendar(params) {
+      document.getElementById("Calendar").style.visibility = "visible";
+      document.getElementById("shadow").style.visibility = "visible";
+    }
 
   const Readings = [
     {
@@ -106,7 +110,7 @@ function Interactions(params) {
           }}
         >
           <div className="col-md-2" style={{ marginRight: "10px" }}>
-            <button className="filterBtn">
+            <button className="filterBtn" onClick={()=>{showCalendar()}}>
               <img src={Calendar} alt="" width={18} height={18} />
             </button>
           </div>

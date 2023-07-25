@@ -2,6 +2,8 @@ import Upload from "./assets/Upload.png";
 import search from "./assets/search-normal.svg";
 import filter from "./assets/SearchFilter.png";
 import cross from "./assets/cross.png";
+import Back from "./assets/Back.png";
+
 import dots from "./assets/dots.png";
 import trash from "./assets/trash.png";
 import edit from "./assets/edit-2.png";
@@ -126,15 +128,18 @@ function BillerReport(params) {
           alignItems: "center",
         }}
       >
-        <div
+        <span
           style={{
-            fontSize: "18px",
-            fontWeight: "700",
-            width: "50%",
+            color: "#929BA6",
+            marginRight: "5px",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            params.showBillerReport();
           }}
         >
-          Billing
-        </div>
+          <img src={Back} alt="" />
+        </span>
         <div style={{ width: "3.5%" }}>
           <button className="filterBtn">
             <img src={Upload} alt="" width={18} height={18} />
@@ -205,7 +210,9 @@ function BillerReport(params) {
               alignItems: "center",
               cursor: "pointer",
             }}
-            onClick={()=>{showFilter()}}
+            onClick={() => {
+              showFilter();
+            }}
           >
             <img src={filter} alt="" width={15} height={15} />
           </div>
@@ -243,7 +250,7 @@ function BillerReport(params) {
               cursor: "pointer",
             }}
             onClick={() => {
-              showCalendar()
+              showCalendar();
             }}
           >
             <input

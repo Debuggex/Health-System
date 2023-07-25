@@ -156,7 +156,15 @@ function Organization(props) {
           <div style={{ overflowY: "scroll" }}>
             <div style={{}}>
               {data.map((datas, index) => (
-                <div className="list-data" style={{ cursor: "default" }}>
+                <div
+                  className="list-data"
+                  style={{
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    props.showOrganization();
+                  }}
+                >
                   <div
                     className="checkbox-wrapper"
                     style={{

@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./PatientView.css";
 import Calling from "./assets/Calling.png";
+import Back from "./assets/Back.png";
 import Chat from "./assets/Chat.png";
 import Copy from "./assets/copy.png";
 import Vitals from "./Vitals";
@@ -37,9 +38,8 @@ function PatientView(params) {
               params.showPatientView();
             }}
           >
-            Patients List{" "}
+            <img src={Back} alt="" />
           </span>
-          &gt; &gt; Patients View
         </div>
         <div className="col-md-12 leftCard">
           <div className="col-md-12">

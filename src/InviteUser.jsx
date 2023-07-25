@@ -24,7 +24,7 @@ function InviteUser(params) {
       {/* Edit Pop Up Header */}
       <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
         <div style={{ width: "50%", fontSize: "24px", fontWeight: "600" }}>
-          Invite User
+          Add User
         </div>
         <div
           style={{
