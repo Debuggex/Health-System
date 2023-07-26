@@ -58,12 +58,7 @@ function OrganizationDetail(params) {
             >
               <img src={Back} alt="" />
             </span>
-            <button
-              className="primaryButton"
-              onClick={() => showOrganization()}
-            >
-              Add Organization
-            </button>
+            
           </div>
           <div className="col-md-4 leftCard">
             <div className="col-md-12">

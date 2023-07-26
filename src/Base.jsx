@@ -10,6 +10,8 @@ import documentColor from "./assets/documentColor.png";
 import logo from "./assets/Logo.png";
 import billers from "./assets/biller.png";
 import billerColor from "./assets/billerColor.png";
+import Location from "./assets/Location.png";
+import LocationColor from "./assets/LocationColor.png";
 
 import search from "./assets/search-normal.svg";
 import profilePic from "./assets/ProfilePic.png";
@@ -60,8 +62,8 @@ function Base(params) {
     "Account Settings",
     "Notification Settings",
     "Privacy and Security Settings",
-    "App Preferences",
     "Help and Support",
+    "Log Out",
   ];
 
   function offSetting() {
@@ -372,7 +374,7 @@ function Base(params) {
                 activeDocument();
               }}
             >
-              <img src={documentIcon} alt="" width={25} />
+              <img src={Location} alt="" width={18} />
             </div>
           )}
 
@@ -387,7 +389,7 @@ function Base(params) {
                 position: "relative",
               }}
             >
-              <img src={documentColor} alt="" width={25} />
+              <img src={LocationColor} alt="" width={18} />
               <div
                 style={{
                   position: "absolute",
@@ -535,7 +537,7 @@ function Base(params) {
                     fontSize: "14px",
                     alignItems: "center",
                     width: "100%",
-                    borderBottom: "1px solid #DADADA",
+                    borderBottom: key!=data.length-1?"1px solid #DADADA":"none",
                     padding: "10px 0",
                     fontWeight: "600",
                   }}
